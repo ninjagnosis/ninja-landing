@@ -13,12 +13,23 @@ export function getStaticPaths() {
 }
 const { product: p } = Astro.props as { product: Product };
 const path = `/products/${p.slug}`;
+// A search description of 120 to 160 characters, built from whole sentences of the product text.
+const sentences = p.description.split(/(?<=\.)\s+/);
+let seoDesc = '';
+for (const s of sentences) {
+  const next = `${seoDesc} ${s}`.trim();
+  if (seoDesc && next.length > 125) break;
+  seoDesc = next;
+}
+if (seoDesc.length < 85 && !seoDesc.includes(p.short)) seoDesc = `${seoDesc} ${p.short}`;
+const withBrand = `${seoDesc} ${p.name} is from Ninja Infosys LLC.`;
+seoDesc = withBrand.length <= 160 ? withBrand : seoDesc;
 const about = (await posts()).filter((x) => x.data.tags.some((t) => p.tags.includes(t))).slice(0, 3);
 const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/products/${x.slug}`, label: x.name, meta: x.short }));
 ---
 <Base
-  title={p.name}
-  description={`${p.name}: ${p.short} A product of Ninja Infosys LLC.`}
+  title={p.headline}
+  description={seoDesc}
   path={path}
   image={p.image}
   jsonLd={[productJsonLd(p), breadcrumbJsonLd([{ name: 'Products', path: '/products' }, { name: p.name, path }])]}

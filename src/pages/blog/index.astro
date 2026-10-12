@@ -6,14 +6,14 @@ import Topics from '../../components/blog/Topics.astro';
 import SubscribeForm from '../../components/forms/SubscribeForm.astro';
 import { posts } from '../../lib/posts';
 import { PAGE_SIZE, allTags, tagLabel } from '../../lib/blog';
-import { breadcrumbJsonLd } from '../../lib/seo';
+import { blogJsonLd, breadcrumbJsonLd } from '../../lib/seo';
 
 const all = await posts();
 const items = all.slice(0, PAGE_SIZE);
 const last = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
 const tags = allTags(all.map((p) => ({ ...p, data: { ...p.data, draft: false } })));
 ---
-<Base title="Blog" description="Notes on strategy, management and productivity from Ninja Infosys LLC." path="/blog" jsonLd={[breadcrumbJsonLd([{ name: 'Blog', path: '/blog' }])]}>
+<Base title="Blog: strategy, management and productivity" pageType="CollectionPage" description="Notes from Ninja Infosys LLC on strategy, management and productivity: how a company with several software products chooses what to build and what to stop." path="/blog" jsonLd={[breadcrumbJsonLd([{ name: 'Blog', path: '/blog' }]), blogJsonLd(all.map((p) => ({ slug: p.id, title: p.data.title, description: p.data.description, date: p.data.date })))]}>
   <section class="section blog-serif">
     <div class="wrap">
       <h1>Blog</h1>

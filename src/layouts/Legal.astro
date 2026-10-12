@@ -1,9 +1,11 @@
 ---
 import Base from './Base.astro';
+import { breadcrumbJsonLd } from '../lib/seo';
 const { frontmatter } = Astro.props;
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const crumbs = [breadcrumbJsonLd([{ name: frontmatter.title, path }])];
 ---
-<Base title={frontmatter.title} description={frontmatter.description} path={path}>
+<Base title={frontmatter.title} description={frontmatter.description} path={path} jsonLd={crumbs}>
   <section class="section">
     <div class="wrap">
       <article class="prose legal"><slot /></article>

@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Legal.astro
-title: Privacy policy
-description: How Ninja Infosys LLC collects, uses and protects personal data when you use this website or contact us.
+title: Privacy policy of Ninja Infosys LLC
+description: How Ninja Infosys LLC collects, uses and protects personal data when you use this website, contact the company or use its products.
 ---
 
 # Privacy policy

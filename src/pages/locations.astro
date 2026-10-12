@@ -3,15 +3,15 @@ import Base from '../layouts/Base.astro';
 import MapPin from '@lucide/astro/icons/map-pin';
 import Phone from '@lucide/astro/icons/phone';
 import Mail from '@lucide/astro/icons/mail';
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL, NEPAL_ADDRESS, SITE_NAME } from '../config/site';
-import { breadcrumbJsonLd } from '../lib/seo';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC, LLC_ADDRESS, NEPAL, NEPAL_ADDRESS, SITE_NAME } from '../config/site';
+import { breadcrumbJsonLd, placeJsonLd } from '../lib/seo';
 
 const offices = [
   { city: 'Denver', name: SITE_NAME, address: LLC_ADDRESS },
   { city: 'Kathmandu', name: NEPAL.legalName, address: NEPAL_ADDRESS },
 ];
 ---
-<Base title="Locations" description="Ninja Infosys LLC offices in Denver, Colorado and Kathmandu, with phone and email for the group." path="/locations" jsonLd={[breadcrumbJsonLd([{ name: 'Locations', path: '/locations' }])]}>
+<Base title="Ninja Infosys LLC offices in Denver and Kathmandu" pageType="ContactPage" description="Where to find Ninja Infosys LLC: the Denver, Colorado office at 1500 N Grant St and the Kathmandu office in Anamnagar, with phone and email for both." path="/locations" jsonLd={[breadcrumbJsonLd([{ name: 'Locations', path: '/locations' }]), placeJsonLd({ name: `${SITE_NAME}, Denver`, street: LLC.street, locality: LLC.locality, region: LLC.region, postalCode: LLC.postalCode, country: LLC.country }), placeJsonLd({ name: `${NEPAL.legalName}, ${NEPAL.locality}`, street: NEPAL.street, locality: NEPAL.locality, country: 'NP' })]}>
   <section class="section">
     <div class="wrap">
       <h1 data-enter>Locations</h1>

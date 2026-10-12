@@ -1,5 +1,5 @@
 ---
-import { abs, canonicalFor, orgJsonLd, titleFor, websiteJsonLd } from '../../lib/seo';
+import { abs, canonicalFor, orgJsonLd, titleFor, webPageJsonLd, websiteJsonLd } from '../../lib/seo';
 
 export interface Props {
   title?: string;
@@ -12,20 +12,23 @@ export interface Props {
   jsonLd?: object[];
   published?: Date;
   modified?: Date;
+  pageType?: string;
 }
 
-const { title, description, path, image, imageAlt, type = 'website', noindex = false, jsonLd = [], published, modified } = Astro.props;
+const { title, description, path, image, imageAlt, type = 'website', noindex = false, jsonLd = [], published, modified, pageType } = Astro.props;
 const fullTitle = titleFor(title);
 const canonical = canonicalFor(path);
 const ogPath = image ?? `/og${path === '/' ? '/index' : path}.png`;
 const ogImage = abs(ogPath);
-const graph = [orgJsonLd(), websiteJsonLd(), ...jsonLd];
+const graph = [orgJsonLd(), websiteJsonLd(), webPageJsonLd({ name: fullTitle, description, path, type: pageType, published, modified }), ...jsonLd];
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 {!noindex && <><link rel="alternate" hreflang="en" href={canonical} /><link rel="alternate" hreflang="x-default" href={canonical} /></>}
 {noindex && <meta name="robots" content="noindex, follow" />}
+<meta name="author" content="Ninja Infosys LLC" />
+{!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
 <meta property="og:site_name" content="Ninja Infosys LLC" />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={fullTitle} />

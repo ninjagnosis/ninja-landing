@@ -5,10 +5,21 @@ import Products from '../components/home/Products.astro';
 import Group from '../components/home/Group.astro';
 import Latest from '../components/home/Latest.astro';
 import CtaBand from '../components/site/CtaBand.astro';
+import { products } from '../data/products';
+import { canonicalFor } from '../lib/seo';
+
+const productList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Software products by Ninja Infosys LLC',
+  itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: canonicalFor(`/products/${p.slug}`) })),
+};
 ---
 <Base
-  description="Ninja Infosys LLC is the company behind eShasan, ePahichan, AirFone, LunaIoT and LunaCam, software products."
+  title="Ninja Infosys LLC, software for organisations and institutions"
+  description="Ninja Infosys LLC designs, builds and operates eShasan, ePahichan, AirFone, LunaIoT and LunaCam, software for organisations and the people who depend on them."
   path="/"
+  jsonLd={[productList]}
 >
   <Hero />
   <Products />
