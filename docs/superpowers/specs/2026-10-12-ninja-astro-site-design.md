@@ -73,14 +73,14 @@ Old routes keep their URLs, except blogs: `/blogs` and `/blogs/[slug]` redirect 
 
 - New blogs only. The old posts are not migrated, and the DCM and PocketBase blog
   sources are dropped.
-- Topics are management and business, from the point of view of a holding
-  company: running a group of product companies, building and operating
-  products, governance, finance and operations, hiring and teams, strategy, productivity
-  and how teams get work done, and
-  lessons from the group's own products. Product launch and company news are
+- Strategy is the main subject, from the point of view of a holding company:
+  how a group chooses and builds products, where to invest and what to stop,
+  portfolio and capital allocation, competition and markets, and how strategy
+  is executed. Supporting topics are management, operations, productivity and
+  people, always tied back to strategy. Product launch and company news are
   allowed but are not the main content.
-- Each post carries one topic tag (management, strategy, operations, finance,
-  people, productivity, products). A post may also name the product it draws on. `/blog/tag/[tag]`
+- Each post carries one topic tag (strategy, management, operations, finance,
+  people, productivity, products). Most posts are tagged strategy. A post may also name the product it draws on. `/blog/tag/[tag]`
   gives one feed per topic.
 - Posts are Markdown files in `src/content/blog`, validated by a schema that
   fails the build on a missing or wrong field, as in the reference sites. No
