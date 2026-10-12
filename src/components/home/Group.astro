@@ -1,15 +1,13 @@
 ---
-import { href, langOf, ui } from '../../lib/i18n';
-const lang = langOf(Astro.currentLocale);
-const T = ui[lang];
+import { NEPAL_LINE } from '../../config/site';
 ---
 <section class="section surface" data-reveal>
   <div class="wrap grid">
-    <h2>{T.groupH}</h2>
+    <h2>One group, five products</h2>
     <div class="prose">
-      <p>{T.groupP}</p>
-      <p>{T.nepalLine}</p>
-      <p><a href={href(lang, '/about')}>{T.groupLink}</a></p>
+      <p>Ninja Infosys LLC builds and runs a group of software products. Each product has its own site, its own users and its own roadmap. The group decides where to invest, what to build next and what to stop.</p>
+      <p>{NEPAL_LINE}</p>
+      <p><a href="/about">About the group</a></p>
     </div>
   </div>
 </section>

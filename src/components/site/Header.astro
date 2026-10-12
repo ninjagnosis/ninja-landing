@@ -6,30 +6,24 @@ import ChevronDown from '@lucide/astro/icons/chevron-down';
 // featured item.
 import { products } from '../../data/products';
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from '../../config/site';
-import { langOf, href, enPath, hasNepali, ui } from '../../lib/i18n';
 
-const lang = langOf(Astro.currentLocale);
-const T = ui[lang];
-
-const rawPath = Astro.url.pathname.replace(/\.html$/, '').replace(/(.)\/$/, '$1');
-const path = enPath(rawPath);
-const other = lang === 'ne' ? path : (hasNepali(path) ? (path === '/' ? '/ne' : `/ne${path}`) : '/ne');
-const current = (h: string) => { const e = enPath(h); return path === e || path.startsWith(`${e}/`) ? 'page' : undefined; };
+const path = Astro.url.pathname.replace(/\.html$/, '');
+const current = (href: string) => (path === href || path.startsWith(`${href}/`) ? 'page' : undefined);
 
 const groups = [
   {
     id: 'products',
-    label: T.products,
+    label: 'Products',
     base: '/products',
-    links: products.map((p) => ({ href: href(lang, `/products/${p.slug}`), label: p.name })),
-    feature: { title: T.megaFeature, href: '/blog', cta: T.readBlog },
+    links: products.map((p) => ({ href: `/products/${p.slug}`, label: p.name })),
+    feature: { title: 'How the group decides what to build and what to stop', href: '/blog', cta: 'Read the blog' },
   },
 ];
 const plain = [
-  { href: href(lang, '/about'), base: '/about', label: T.about },
-  { href: '/blog', base: '/blog', label: T.blog },
-  { href: href(lang, '/careers'), base: '/careers', label: T.careers },
-  { href: href(lang, '/contact'), base: '/contact', label: T.contact },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/careers', label: 'Careers' },
+  { href: '/contact', label: 'Contact' },
 ];
 ---
 <div class="utility">
@@ -37,14 +31,13 @@ const plain = [
       <a href={CONTACT_PHONE_TEL} class="u-call">{CONTACT_PHONE_DISPLAY}</a>
       <nav aria-label="Product sites" class="u-links">
         {products.map((p) => <a href={p.url}>{p.name}</a>)}
-        <a href={other} hreflang={lang === 'ne' ? 'en' : 'ne'} lang={lang === 'ne' ? 'en' : 'ne'} class="u-lang">{lang === 'ne' ? 'English' : 'नेपाली'}</a>
       </nav>
     </div>
   </div>
 
 <header class="site-header">
   <div class="wrap bar">
-    <a class="logo" href={href(lang, '/')} aria-label="Ninja Infosys LLC home">
+    <a class="logo" href="/" aria-label="Ninja Infosys LLC home">
       <img src="/brand/ninja-mark-64.png" alt="" width="40" height="40" class="logo-mark" aria-hidden="true" />
       <span class="logo-name">Ninja Infosys</span>
     </a>
@@ -71,14 +64,14 @@ const plain = [
             </details>
           </li>
         ))}
-        {plain.map((l) => <li><a class="nav-link" href={l.href} aria-current={current((l as any).base ?? l.href)}>{l.label}</a></li>)}
+        {plain.map((l) => <li><a class="nav-link" href={l.href} aria-current={current(l.href)}>{l.label}</a></li>)}
       </ul>
     </nav>
 
     <div class="actions">
-      <a class="btn btn-primary" href={href(lang, '/contact')}>{T.contactUs}</a>
+      <a class="btn btn-primary" href="/contact">Contact us</a>
       <details class="mobile" data-menu>
-        <summary aria-label={T.menu}><span class="bars" aria-hidden="true"><i></i></span><span class="mobile-label">{T.menu}</span></summary>
+        <summary aria-label="Menu"><span class="bars" aria-hidden="true"><i></i></span><span class="mobile-label">Menu</span></summary>
         <nav class="mobile-panel" aria-label="Main">
           <ul class="m-list">
             {groups.map((g) => (
@@ -94,13 +87,12 @@ const plain = [
             {plain.map((l) => <li><a class="m-row" href={l.href} aria-current={current(l.href)}>{l.label}</a></li>)}
           </ul>
           <ul class="m-small">
-            <li><a href={href(lang, '/locations')}>{T.locations}</a></li>
-            <li><a href="/privacy">{T.privacy}</a></li>
-            <li><a href={other} lang={lang === 'ne' ? 'en' : 'ne'}>{lang === 'ne' ? 'English' : 'नेपाली'}</a></li>
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/privacy">Privacy</a></li>
           </ul>
           <div class="mobile-actions">
-            <a class="btn btn-secondary" href={CONTACT_PHONE_TEL}>{T.callUs}</a>
-            <a class="btn btn-primary" href={href(lang, '/contact')}>{T.contactUs}</a>
+            <a class="btn btn-secondary" href={CONTACT_PHONE_TEL}>Call us</a>
+            <a class="btn btn-primary" href="/contact">Contact us</a>
           </div>
         </nav>
       </details>
@@ -168,7 +160,6 @@ const plain = [
   .utility a { color: var(--stage-ink); text-decoration: none; }
   .utility a:hover { text-decoration: underline; }
   .u-links { display: flex; gap: var(--space-5); }
-  .u-lang { font-weight: 600; }
 
   .bar { display: flex; align-items: center; gap: var(--space-7); height: 72px; }
   .logo { flex: none; display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; color: var(--ink); }

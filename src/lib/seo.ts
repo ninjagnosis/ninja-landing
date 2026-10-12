@@ -67,7 +67,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
-/** A product the group holds. No `offers`: the site carries no prices. */
+/** A product in the group. No `offers`: the site carries no prices. */
 export function productJsonLd(p: { slug: string; name: string; description: string; url: string; highlights?: string[] }) {
   return {
     '@context': 'https://schema.org',

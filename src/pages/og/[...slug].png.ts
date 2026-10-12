@@ -17,7 +17,7 @@ const mark = `data:image/png;base64,${readFileSync('public/brand/ninja-mark-192.
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const pages: { slug: string; title: string }[] = [
-    { slug: 'index', title: 'Ninja Infosys LLC, the holding company behind five products' },
+    { slug: 'index', title: 'Ninja Infosys LLC, the company behind five products' },
     { slug: 'about', title: 'About Ninja Infosys LLC' },
     { slug: 'locations', title: 'Locations' },
     { slug: 'careers', title: 'Careers' },

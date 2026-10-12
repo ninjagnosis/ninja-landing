@@ -1,15 +1,12 @@
 ---
 import { footerColumns } from '../../data/nav';
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, SITE_NAME } from '../../config/site';
-import { href, langOf, ui } from '../../lib/i18n';
-const lang = langOf(Astro.currentLocale);
-const T = ui[lang];
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL_LINE, SITE_NAME } from '../../config/site';
 ---
 <footer class="site-footer">
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <a class="logo" href={href(lang, '/')} aria-label="Ninja Infosys LLC home">
+        <a class="logo" href="/" aria-label="Ninja Infosys LLC home">
           <img src="/brand/ninja-mark-64.png" alt="" width="40" height="40" aria-hidden="true" />
           <span>Ninja Infosys</span>
         </a>
@@ -19,14 +16,14 @@ const T = ui[lang];
           <span class="muted">{SITE_NAME}, {LLC_ADDRESS}</span>
         </p>
       </div>
-      {footerColumns(lang).map((col) => (
+      {footerColumns.map((col) => (
         <nav aria-label={col.title}>
           <h2 class="col-title">{col.title}</h2>
           <ul>{col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
         </nav>
       ))}
     </div>
-    <p class="legal muted">© {new Date().getFullYear()} {SITE_NAME}. {T.nepalLine}</p>
+    <p class="legal muted">© {new Date().getFullYear()} {SITE_NAME}. {NEPAL_LINE}</p>
   </div>
 </footer>
 

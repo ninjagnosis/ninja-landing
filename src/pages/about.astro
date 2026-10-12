@@ -4,31 +4,79 @@ import Products from '../components/home/Products.astro';
 import CtaBand from '../components/site/CtaBand.astro';
 import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
-import { href, langOf, ui } from '../lib/i18n';
-const lang = langOf(Astro.currentLocale);
-const T = ui[lang];
+
+const shared = ['Finance and accounting', 'Hiring and people', 'Strategy and investment', 'Legal, security and brand rules'];
+const perProduct = ['Roadmap and releases', 'Customers and support', 'Pricing and partners', 'Day-to-day decisions'];
 ---
-<Base title={T.about} description={T.aboutDesc} path="/about" jsonLd={[breadcrumbJsonLd([{ name: T.about, path: '/about' }])]}>
+<Base
+  title="About"
+  description="Ninja Infosys LLC builds and runs eShasan, ePahichan, AirFone, LunaIoT and LunaCam, and operates in Nepal through Ninja Infosys Pvt. Ltd."
+  path="/about"
+  jsonLd={[breadcrumbJsonLd([{ name: 'About', path: '/about' }])]}
+>
   <section class="section">
     <div class="wrap">
-      <h1 data-enter>{T.aboutH}</h1>
-      <div class="prose" data-enter style="--d:1">
-        <p>{T.aboutP1}</p>
-        <p>{T.aboutP2}</p>
-        <h2>{T.where}</h2>
-        {lang === 'ne'
-          ? <p>{SITE_NAME} को ठेगाना {LLC_ADDRESS} हो। नेपालमा समूह {NEPAL.legalName} मार्फत सञ्चालन हुन्छ, जुन {NEPAL_ADDRESS} मा रहेको नेपालमा दर्ता भएको निजी लिमिटेड कम्पनी हो।</p>
-          : <p>{SITE_NAME} is based at {LLC_ADDRESS}. In Nepal the group operates through {NEPAL.legalName}, a Nepal-registered private limited company at {NEPAL_ADDRESS}.</p>}
-        {(NEPAL.registrationNumber || NEPAL.panNumber) && (
-          <p>
-            {NEPAL.registrationNumber && <>{T.regNo}: {NEPAL.registrationNumber}. </>}
-            {NEPAL.panNumber && <>{T.pan}: {NEPAL.panNumber}.</>}
-          </p>
-        )}
-        <p><a href={href(lang, '/locations')}>{T.officesLink}</a></p>
+      <h1 data-enter>About {SITE_NAME}</h1>
+      <p class="lead" data-enter style="--d:1">
+        {SITE_NAME} builds and runs software products for Nepal. Each product has its own site, its own users and its own roadmap. The company keeps the work they share in one place.
+      </p>
+    </div>
+  </section>
+
+  <Products heading="What we run" />
+
+  <section class="section surface" data-reveal>
+    <div class="wrap">
+      <h2>How the work is split</h2>
+      <div class="split">
+        <div>
+          <h3>Shared by the group</h3>
+          <ul>{shared.map((s) => <li>{s}</li>)}</ul>
+        </div>
+        <div>
+          <h3>Owned by each product</h3>
+          <ul>{perProduct.map((s) => <li>{s}</li>)}</ul>
+        </div>
       </div>
     </div>
   </section>
-  <Products heading={T.holds} />
+
+  <section class="section" data-reveal>
+    <div class="wrap">
+      <h2>Where we operate</h2>
+      <div class="offices">
+        <div>
+          <h3>{SITE_NAME}</h3>
+          <p>{LLC_ADDRESS}</p>
+        </div>
+        <div>
+          <h3>{NEPAL.legalName}</h3>
+          <p>Nepal-registered private limited company</p>
+          <p>{NEPAL_ADDRESS}</p>
+          {NEPAL.registrationNumber && <p>Company registration number: {NEPAL.registrationNumber}</p>}
+          {NEPAL.panNumber && <p>PAN: {NEPAL.panNumber}</p>}
+        </div>
+      </div>
+      <p class="more"><a href="/locations">Offices and contact details</a></p>
+    </div>
+  </section>
+
   <CtaBand />
 </Base>
+
+<style>
+  .lead { margin-top: var(--space-5); max-width: 38em; font-size: 1.25rem; color: var(--ink-muted); }
+  .surface { background: var(--surface); }
+  .split, .offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+  h3 { margin-bottom: var(--space-4); }
+  .split ul { list-style: none; margin: 0; padding: 0; }
+  .split li { padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+  .split li:last-child { border-bottom: 1px solid var(--line); }
+  .offices > div { border-top: 1px solid var(--line); padding-top: var(--space-5); }
+  .offices h3 { margin-bottom: var(--space-3); }
+  .offices p { color: var(--ink-muted); }
+  .offices p + p { margin-top: var(--space-1); }
+  .more { margin-top: var(--space-7); font-weight: 500; }
+  .section > .wrap > h2:first-child { margin-bottom: var(--space-6); }
+  @media (max-width: 767px) { .split, .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
+</style>

@@ -1,6 +1,6 @@
 # Ninja Infosys LLC site
 
-Marketing site for Ninja Infosys LLC, the holding company for eShasan,
+Marketing site for Ninja Infosys LLC, the company behind eShasan,
 ePahichan, AirFone, LunaIoT and LunaCam. Astro, static output, built the same
 way as the AirFone, ePahichan and LunaCam sites.
 

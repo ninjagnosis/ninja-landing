@@ -1,16 +1,16 @@
 ---
-title: "What a holding company is for, and what it should leave alone"
-description: A holding company earns its place by deciding where capital and attention go. Here is what it should do for its products, and what it should leave to them.
+title: "What the group should decide, and what it should leave to each product"
+description: A company with several products has to decide where money and attention go. Here is what the group should decide for its products, and what to leave to them.
 date: 2026-10-12
 tags: [strategy, management]
 faq:
-  - q: "What does a holding company actually do?"
-    a: "It owns the products, decides where money and people go, sets the rules that must be the same everywhere, and leaves the rest to the people running each product."
-  - q: "Should a holding company run the products day to day?"
-    a: "No. Day-to-day decisions belong to the people closest to the customer. The holding company decides the few things that only the group can decide."
+  - q: "What should the group decide for its products?"
+    a: "Where money and people go, which products exist, who leads each one, and the few rules that must be the same everywhere. The rest belongs to the people running each product."
+  - q: "Should the group run each product day to day?"
+    a: "No. Day-to-day decisions belong to the people closest to the customer. The group decides only what no single product can decide alone."
 ---
 
-A holding company is easy to describe and easy to get wrong. It owns other businesses. The mistake is to think that owning them means running them.
+A company with several products is easy to describe and easy to get wrong. It owns them, and the mistake is to think that owning them means running them.
 
 ## The four things only the group can decide
 

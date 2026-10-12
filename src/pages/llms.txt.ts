@@ -10,7 +10,7 @@ export async function GET(_: APIContext) {
   const out = [
     '# Ninja Infosys LLC',
     '',
-    `> Ninja Infosys LLC is a holding company. It owns and runs eShasan, ePahichan, AirFone, LunaIoT and LunaCam, software products built and run in Nepal. ${NEPAL_LINE}`,
+    `> Ninja Infosys LLC builds and runs eShasan, ePahichan, AirFone, LunaIoT and LunaCam, software products built and run in Nepal. ${NEPAL_LINE}`,
     '',
     `- Contact: ${CONTACT_EMAIL}, ${CONTACT_PHONE_DISPLAY}`,
     '',

@@ -5,18 +5,16 @@ import Phone from '@lucide/astro/icons/phone';
 import Mail from '@lucide/astro/icons/mail';
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL, NEPAL_ADDRESS, SITE_NAME } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
-import { langOf, ui } from '../lib/i18n';
-const T = ui[langOf(Astro.currentLocale)];
 
 const offices = [
-  { city: T.cityDenver, name: SITE_NAME, address: LLC_ADDRESS },
-  { city: T.cityKtm, name: NEPAL.legalName, address: NEPAL_ADDRESS },
+  { city: 'Denver', name: SITE_NAME, address: LLC_ADDRESS },
+  { city: 'Kathmandu', name: NEPAL.legalName, address: NEPAL_ADDRESS },
 ];
 ---
-<Base title={T.locations} description={T.locDesc} path="/locations" jsonLd={[breadcrumbJsonLd([{ name: T.locations, path: '/locations' }])]}>
+<Base title="Locations" description="Ninja Infosys LLC offices in Denver, Colorado and Kathmandu, Nepal, with phone and email for the group." path="/locations" jsonLd={[breadcrumbJsonLd([{ name: 'Locations', path: '/locations' }])]}>
   <section class="section">
     <div class="wrap">
-      <h1 data-enter>{T.locations}</h1>
+      <h1 data-enter>Locations</h1>
       <ul class="offices">
         {offices.map((o, i) => (
           <li data-enter style={`--d:${i + 1}`}>

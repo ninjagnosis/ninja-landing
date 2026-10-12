@@ -8,7 +8,6 @@ export default defineConfig({
   site: 'https://ninjainfosys.com',
   output: 'static',
   trailingSlash: 'never',
-  i18n: { locales: ['en', 'ne'], defaultLocale: 'en', routing: { prefixDefaultLocale: false } },
   build: { format: 'file', assets: 'assets', inlineStylesheets: 'auto' },
   devToolbar: { enabled: false },
   compressHTML: true,
