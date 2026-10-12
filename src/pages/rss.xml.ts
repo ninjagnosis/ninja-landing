@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
   const items = published(await getCollection('blog'));
   return rss({
     title: 'Ninja Infosys blog',
-    description: 'Strategy, management and productivity from Ninja Infosys LLC, the company behind eShasan, ePahichan, AirFone, LunaIoT and LunaCam.',
+    description: 'Notes on strategy, management and productivity from Ninja Infosys LLC.',
     site: context.site!,
     items: items.map((p) => ({
       title: p.data.title,
