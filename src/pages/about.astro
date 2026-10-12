@@ -23,6 +23,12 @@ import { breadcrumbJsonLd } from '../lib/seo';
 
   <Products heading="What we run" />
 
+  <section class="section-tight" data-reveal>
+    <div class="wrap">
+      <p class="recog">Recognition and coverage, including the ASOCIO Digital Government Award 2025: <a href="/media">awards and press</a>.</p>
+    </div>
+  </section>
+
   <section class="section" data-reveal>
     <div class="wrap">
       <h2>Where we operate</h2>
@@ -53,6 +59,7 @@ import { breadcrumbJsonLd } from '../lib/seo';
   .offices > div { border-top: 1px solid var(--line); padding-top: var(--space-5); }
   .offices p { color: var(--ink-muted); }
   .offices p + p { margin-top: var(--space-1); }
+  .recog { max-width: 40em; }
   .more { margin-top: var(--space-7); font-weight: 500; }
   .section > .wrap > h2:first-child { margin-bottom: var(--space-6); }
   @media (max-width: 767px) { .offices { grid-template-columns: 1fr; gap: var(--space-7); } }

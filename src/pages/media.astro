@@ -1,0 +1,229 @@
+---
+import ExternalLink from '@lucide/astro/icons/external-link';
+import ArrowDown from '@lucide/astro/icons/arrow-down';
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/site/CtaBand.astro';
+import { asocio, awards, press, faq, pressKit, boilerplate } from '../data/media';
+import { CONTACT_EMAIL } from '../config/site';
+import { abs, breadcrumbJsonLd, canonicalFor, faqJsonLd } from '../lib/seo';
+import { SITE_URL } from '../config/site';
+
+const dmy = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const my = (d: string) => new Date(`${d}-01`).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+const when = (d?: string) => (!d ? '' : d.length === 7 ? my(d) : dmy(d));
+const [lead, second] = asocio.photos;
+const ORG = { '@id': `${SITE_URL}/#organization` };
+const url = canonicalFor('/media');
+const published = new Date('2025-11-11');
+const modified = new Date('2026-10-12');
+
+// Structured data: the award story, the photographs, and the coverage list.
+const graph = [
+  breadcrumbJsonLd([{ name: 'Media', path: '/media' }]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: 'Ninja Infosys receives the ASOCIO Digital Government Award 2025',
+    description: 'Ninja Infosys received the ASOCIO Digital Government Award for Digital Palika at the ASOCIO Digital Summit in Taipei on 11 November 2025.',
+    datePublished: '2025-11-11',
+    dateModified: '2026-10-12',
+    inLanguage: 'en',
+    url,
+    mainEntityOfPage: url,
+    image: asocio.photos.map((p) => abs(p.src)),
+    author: ORG,
+    publisher: ORG,
+    about: { '@type': 'Thing', name: 'ASOCIO Digital Government Award 2025' },
+    citation: press.filter((p) => p.date && p.date >= '2025-11').map((p) => p.url),
+  },
+  ...asocio.photos.map((p) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    contentUrl: abs(p.src),
+    caption: p.alt,
+    creditText: 'Ninja Infosys LLC',
+    creator: ORG,
+  })),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Press coverage of Ninja Infosys',
+    itemListElement: press.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: p.url, name: `${p.outlet}: ${p.title}` })),
+  },
+  faqJsonLd(faq),
+];
+---
+<Base
+  title="ASOCIO Digital Government Award 2025 and press"
+  description="Ninja Infosys received the ASOCIO Digital Government Award 2025 in Taipei for Digital Palika. Awards, photographs, press coverage and a press kit."
+  path="/media"
+  type="article"
+  image="/media/asocio-2025.webp"
+  imageAlt="Ninja Infosys on stage at the ASOCIO Awards 2025 in Taipei"
+  published={published}
+  modified={modified}
+  jsonLd={graph}
+>
+  <section class="hero on-stage">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 data-enter>{asocio.name}</h1>
+        <p class="hero-when" data-enter style="--d:1"><time datetime={asocio.date}>{dmy(asocio.date)}</time>, {asocio.place}</p>
+        <p class="hero-lede" data-enter style="--d:2">Awarded to Ninja Infosys for Digital Palika, the platform that brings municipal services online for local governments.</p>
+        <div class="hero-actions" data-enter style="--d:3">
+          <a class="btn btn-light" href="#story">About the award</a>
+          <a class="btn btn-secondary" href="#press">Press coverage <ArrowDown size={18} stroke-width={2} aria-hidden="true" /></a>
+        </div>
+      </div>
+      <img class="hero-photo" src={lead.src} alt={lead.alt} width="1024" height="768" loading="eager" data-enter style="--d:2" />
+    </div>
+  </section>
+
+  <section class="story section" id="story" aria-labelledby="story-h">
+    <div class="wrap story-grid">
+      <div class="story-copy">
+        <h2 id="story-h">About the award</h2>
+        <p>ASOCIO, the Asia Oceania Computing Industry Organization, presents its awards each year at its Digital Summit. This year the summit ran from 10 to 12 November in Taipei, and seven technology organisations were honoured on the recommendation of the CAN Federation, across categories from cyber security to startups.</p>
+        <p>Ramesh Chhetri, our CEO, said the award shows how much promise there is in the IT sector, and that being recognised on an international stage is a happiness shared by everyone.</p>
+      </div>
+      <figure class="story-fig"><img class="story-photo" src={second.src} alt={second.alt} width="1024" height="768" loading="lazy" /><figcaption>Receiving the ASOCIO Digital Government Award 2025, Taipei.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="recognition section" aria-labelledby="awards-h">
+    <div class="wrap">
+      <h2 id="awards-h">Other recognition</h2>
+      <ol>
+        {awards.map((a) => (
+          <li data-reveal class:list={{ portrait: a.portrait }}>
+            <p class="year">{a.year}</p>
+            <div class="text">
+              <h3>{a.name}</h3>
+              <p class="by">{a.by}</p>
+              {a.note && <p class="note">{a.note}</p>}
+            </div>
+            <figure><img src={a.photo.src} alt={a.photo.alt} width={a.portrait ? 900 : 1200} height={a.portrait ? 1200 : 900} loading="lazy" /></figure>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="press section" id="press" aria-labelledby="press-h">
+    <div class="wrap">
+      <h2 id="press-h">In the press</h2>
+      <ul>
+        {press.map((p) => (
+          <li data-reveal>
+            <a href={p.url} rel="noopener" target="_blank">
+              <span class="date">{p.date ? <time datetime={p.date}>{when(p.date)}</time> : null}</span>
+              <span class="outlet">{p.outlet}</span>
+              <span class="headline">{p.title}{p.lang === 'ne' && <span class="lang">In Nepali</span>}</span>
+              <ExternalLink class="go" size={18} stroke-width={2} aria-hidden="true" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="enquiries">For press enquiries or photographs, write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    </div>
+  </section>
+
+  <section class="kit section" id="press-kit" aria-labelledby="kit-h">
+    <div class="wrap kit-grid">
+      <div class="kit-copy">
+        <h2 id="kit-h">Press kit</h2>
+        <h3>About Ninja Infosys</h3>
+        <p class="boiler">{boilerplate}</p>
+        <h3>How to cite</h3>
+        <p>Ninja Infosys received the ASOCIO Digital Government Award 2025. Source: <a href={url}>{url}</a></p>
+      </div>
+      <ul class="files">
+        {pressKit.map((f) => (
+          <li><a href={`/press/${f.file}`} download><span class="f-label">{f.label}</span><span class="f-detail">{f.detail}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq section" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Questions</h2>
+      <dl>
+        {faq.map((f) => (<div><dt>{f.q}</dt><dd>{f.a}</dd></div>))}
+      </dl>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  /* Hero: the award is the headline, the ceremony photograph beside it. */
+  .hero { padding-block: var(--space-9); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-8); align-items: center; }
+  .hero h1 { font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem); line-height: 1.08; max-width: 14ch; }
+  .hero-when { margin-top: var(--space-5); font-family: var(--font-display); font-weight: 500; font-size: 1.0625rem; color: var(--stage-muted); }
+  .hero-lede { margin-top: var(--space-4); max-width: 30em; font-size: 1.25rem; color: var(--stage-ink); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
+  .hero-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-panel); }
+
+  .story-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: center; }
+  .story-copy h2 { margin-bottom: var(--space-5); }
+  .story-copy p { max-width: 36em; }
+  .story-copy p + p { margin-top: var(--space-4); }
+  .story-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-panel); }
+
+  .story-fig { margin: 0; }
+  .story-fig figcaption { margin-top: var(--space-3); font-size: 14px; color: var(--ink-muted); }
+
+  /* Press kit and questions */
+  .kit { background: var(--surface); }
+  .kit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .kit h2, .faq h2 { margin-bottom: var(--space-6); }
+  .kit h3 { font-size: 1.125rem; margin: var(--space-5) 0 var(--space-2); }
+  .kit h3:first-of-type { margin-top: 0; }
+  .boiler { max-width: 36em; }
+  .files { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .files a { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+  .f-label { font-weight: 500; transition: color var(--fast) var(--ease); }
+  .f-detail { font-size: 14px; color: var(--ink-muted); white-space: nowrap; }
+  .files a:hover .f-label { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+  dl { margin: 0; max-width: 46em; }
+  dl > div { padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+  dl > div:last-child { border-bottom: 1px solid var(--line); }
+  dt { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; }
+  dd { margin: var(--space-2) 0 0; }
+
+  /* Other recognition: the year leads, the photograph sits in a fixed column. */
+  .recognition > .wrap > h2, .press > .wrap > h2 { margin-bottom: var(--space-6); }
+  ol { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  ol > li { display: grid; grid-template-columns: 140px minmax(0, 1fr) 300px; gap: var(--space-6); align-items: start; padding-block: var(--space-6); border-top: 1px solid var(--line); }
+  .year { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 1.5rem + 1.6vw, 2.75rem); line-height: 1; }
+  h3 { font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem); line-height: 1.2; }
+  .by { margin-top: var(--space-3); color: var(--ink-muted); }
+  .note { margin-top: var(--space-3); max-width: 40em; }
+  figure { margin: 0; }
+  figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-panel); background: var(--surface); }
+  li.portrait figure img { aspect-ratio: 3 / 4; }
+
+  /* Press: date, outlet and headline on one line; the arrow marks an external link. */
+  .press ul { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .press li a { display: grid; grid-template-columns: 140px 180px minmax(0, 1fr) auto; gap: var(--space-5); align-items: baseline; padding: var(--space-4) 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+  .date { font-size: 15px; color: var(--ink-muted); }
+  .outlet { font-family: var(--font-display); font-weight: 600; }
+  .headline { transition: color var(--fast) var(--ease); }
+  .lang { margin-left: var(--space-3); font-size: 14px; color: var(--ink-muted); white-space: nowrap; }
+  .press li a :global(.go) { color: var(--link); align-self: center; }
+  .press li a:hover .headline { color: var(--link); text-decoration: underline; text-underline-offset: 0.18em; }
+  .enquiries { margin-top: var(--space-6); color: var(--ink-muted); }
+
+  @media (max-width: 959px) {
+    .hero { padding-block: var(--space-8); }
+    .hero-grid, .story-grid, .kit-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    ol > li { grid-template-columns: 1fr; gap: var(--space-4); }
+    li.portrait figure img { max-width: 320px; }
+    .press li a { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-1) var(--space-4); align-items: start; }
+    .date, .outlet, .headline { grid-column: 1; }
+    .press li a :global(.go) { grid-column: 2; grid-row: 1 / 4; }
+  }
+</style>

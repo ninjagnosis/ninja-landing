@@ -21,6 +21,7 @@ export async function getStaticPaths() {
     { slug: 'about', title: 'About Ninja Infosys LLC' },
     { slug: 'locations', title: 'Locations' },
     { slug: 'careers', title: 'Careers' },
+    { slug: 'media', title: 'ASOCIO Digital Government Award 2025' },
     { slug: 'contact', title: 'Contact Ninja Infosys LLC' },
     { slug: 'products', title: 'Products' },
     { slug: 'blog', title: 'Ninja Infosys blog' },
