@@ -37,7 +37,7 @@ export function orgJsonLd() {
       postalCode: LLC.postalCode,
       addressCountry: LLC.country,
     },
-    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', telephone: CONTACT_PHONE_JSONLD, email: CONTACT_EMAIL, availableLanguage: ['en', 'ne'] },
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', telephone: CONTACT_PHONE_JSONLD, email: CONTACT_EMAIL, availableLanguage: ['en'] },
     subOrganization: {
       '@type': 'Organization',
       name: NEPAL.legalName,

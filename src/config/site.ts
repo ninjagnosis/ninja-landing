@@ -33,5 +33,5 @@ export const NEPAL = {
   registrationNumber: null as string | null,
   panNumber: null as string | null,
 } as const;
-export const NEPAL_ADDRESS = `${NEPAL.street}, ${NEPAL.locality}, ${NEPAL.countryName}`;
-export const NEPAL_LINE = `Ninja Infosys LLC operates in Nepal through ${NEPAL.legalName}, a Nepal-registered private limited company.`;
+export const NEPAL_ADDRESS = `${NEPAL.street}, ${NEPAL.locality}`;
+export const NEPAL_LINE = `Ninja Infosys LLC also operates through ${NEPAL.legalName}, a private limited company in ${NEPAL.locality}.`;

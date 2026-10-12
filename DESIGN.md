@@ -37,7 +37,7 @@ gutter 16px (32px from 768px). Sections 96px (64px on phones).
 
 ## Copy rules
 
-- Ninja Infosys LLC is the main subject of every page. The Nepal entity,
+- Ninja Infosys LLC is the main subject of every page. The Kathmandu entity,
   Ninja Infosys Pvt. Ltd., appears as one supporting line (`NEPAL_LINE`).
 - No label above a heading, no badge above a headline, no subtitles or
   taglines under headings, no em-dashes in copy, no marketing adjectives.

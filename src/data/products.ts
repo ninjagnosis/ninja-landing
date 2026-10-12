@@ -41,9 +41,9 @@ export const products: Product[] = [
     short: 'Digital signatures, signed in the browser.',
     headline: 'ePahichan, digital signatures',
     description:
-      'ePahichan lets people sign documents electronically in line with Nepal\'s Electronic Transactions Act, 2063. Signing happens in the browser, and any signature can be checked with only the document and the signer\'s public key.',
+      'ePahichan lets people sign documents electronically in line with the Electronic Transactions Act, 2063. Signing happens in the browser, and any signature can be checked with only the document and the signer\'s public key.',
     highlights: [
-      'Digital signatures recognised under Nepal\'s Electronic Transactions Act, 2063',
+      'Digital signatures recognised under the Electronic Transactions Act, 2063',
       'Browser-based signing, with verification that does not depend on ePahichan servers',
       'Each signature is tied to the signer\'s private key',
       'Any change to a document after signing is detected',
@@ -60,9 +60,9 @@ export const products: Product[] = [
     short: 'A business phone system with an agent that answers calls.',
     headline: 'AirFone, a business phone system',
     description:
-      'AirFone is a business phone system online, with an AI agent that answers your line in Nepali, day and night, and hands over to your team when it should. Extensions, menus, recording and queues run on your existing number.',
+      'AirFone is a business phone system online, with an AI agent that answers your line day and night, and hands over to your team when it should. Extensions, menus, recording and queues run on your existing number.',
     highlights: [
-      'An AI agent that answers your business line in Nepali',
+      'An AI agent that answers your business line',
       'Extensions, menus, recording and queues on your existing number',
       'No hardware to install',
       'Calls out for you as well as answering',
@@ -79,12 +79,12 @@ export const products: Product[] = [
     short: 'GPS vehicle tracking and IoT.',
     headline: 'LunaIoT, GPS tracking and IoT',
     description:
-      'LunaIoT is a GPS vehicle tracking and IoT platform for fleet management and smart tracking in Nepal and abroad. It runs through the Luna IoT app, with vehicle status, trips and fleet views for organisations and government bodies.',
+      'LunaIoT is a GPS vehicle tracking and IoT platform for fleet management and smart tracking. It runs through the Luna IoT app, with vehicle status, trips and fleet views for organisations and government bodies.',
     highlights: [
       'Real-time vehicle tracking with running, idle and stopped status',
       'Fleet management for organisations and government bodies',
       'Trip distance, fuel, odometer and altitude at a glance',
-      'Designed and built in Nepal',
+      'Available through the Luna IoT app',
     ],
     url: 'https://mylunago.com',
     host: 'mylunago.com',
@@ -95,14 +95,14 @@ export const products: Product[] = [
   {
     slug: 'lunacam',
     name: 'LunaCam',
-    short: 'View cameras and DVRs from your phone. Video is kept in Nepal.',
+    short: 'View cameras and DVRs from your phone.',
     headline: 'LunaCam, camera viewing and recording',
     description:
-      'LunaCam is a multi-vendor camera platform for Nepal. It connects cameras and recorders from different makers without router settings, keeps recordings and evidence in Nepal, and sends alerts to your phone.',
+      'LunaCam is a multi-vendor camera platform. It connects cameras and recorders from different makers without router settings, stores recordings and evidence, and sends alerts to your phone.',
     highlights: [
       'Works with cameras and DVRs from different vendors',
       'A small box on your network connects cameras without router settings',
-      'Recording and evidence kept in Nepal',
+      'Recording and evidence storage',
       'Alerts and vision, with a developer platform',
     ],
     url: 'https://lunacam.app',

@@ -54,4 +54,4 @@ Need clarity on how we use cookies or the choices available to you? Let our priv
 
 ## Who we are
 
-Ninja Infosys LLC operates in Nepal through Ninja Infosys Pvt. Ltd., a Nepal-registered private limited company in Kathmandu.
+Ninja Infosys LLC also operates through Ninja Infosys Pvt. Ltd., a private limited company in Kathmandu.
