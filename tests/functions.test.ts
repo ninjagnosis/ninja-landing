@@ -47,18 +47,17 @@ describe('POST /api/contact', () => {
 });
 
 describe('POST /api/subscribe', () => {
-  it('creates a PocketBase record', async () => {
+  it('sends the subscription to DCM as a contact message', async () => {
     const f = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
     vi.stubGlobal('fetch', f);
-    const res = await call(subscribe, { email: 'a@b.co' }, { PB_URL: 'https://pb.test' });
+    const res = await call(subscribe, { email: 'a@b.co' }, { DCM_API_URL: 'https://dcm.test', DCM_TENANT_SLUG: 't', DCM_CATEGORY_SLUG: 'c' });
     expect(res.status).toBe(200);
-    expect(f.mock.calls[0][0]).toBe('https://pb.test/api/collections/pbc_2371097426/records');
+    expect(f.mock.calls[0][0]).toBe('https://dcm.test/api/public/dcm/c/contact');
+    expect(JSON.parse(f.mock.calls[0][1].body)).toMatchObject({ email: 'a@b.co', full_name: 'Newsletter subscriber' });
   });
-  it('reports a duplicate address', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{"email":{"code":"validation_not_unique"}}', { status: 400 })));
-    const res = await call(subscribe, { email: 'a@b.co' });
-    expect(res.status).toBe(400);
-    expect((await res.json()).error).toMatch(/already/);
+  it('returns 502 when DCM rejects', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('no', { status: 500 })));
+    expect((await call(subscribe, { email: 'a@b.co' })).status).toBe(502);
   });
   it('rejects a bad address', async () => {
     vi.stubGlobal('fetch', vi.fn());

@@ -1,10 +1,14 @@
 // Cloudflare Pages Function: POST /api/subscribe
-// Adds the address to the newsletter collection in PocketBase.
+// The PocketBase newsletter collection is retired (cms.ninjainfosys.com no
+// longer answers), so a subscription is sent to the DCM contact endpoint as a
+// message the team can act on. DCM has no unique constraint on email, so
+// duplicates are not detected here.
 interface Env {
-  PB_URL?: string;
+  DCM_API_URL?: string;
+  DCM_TENANT_SLUG?: string;
+  DCM_CATEGORY_SLUG?: string;
 }
 
-const COLLECTION = 'pbc_2371097426';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
@@ -19,17 +23,22 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
   if (!EMAIL.test(email)) return json({ error: 'Invalid email address' }, 400);
 
-  const base = env.PB_URL || 'https://cms.ninjainfosys.com';
+  const base = env.DCM_API_URL || 'https://ninjainfosys.app.eshasan.com';
+  const tenant = env.DCM_TENANT_SLUG || 'ninjainfosys';
+  const category = env.DCM_CATEGORY_SLUG || 'ninjainfosys';
   try {
-    const res = await fetch(`${base}/api/collections/${COLLECTION}/records`, {
+    const res = await fetch(`${base}/api/public/dcm/${category}/contact`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email, subscribed_at: new Date().toISOString() }),
+      headers: { 'content-type': 'application/json', 'x-tenant-slug': tenant },
+      body: JSON.stringify({
+        full_name: 'Newsletter subscriber',
+        email,
+        phone_number: null,
+        message: 'Newsletter subscription request from the blog page. Add this address to the mailing list.',
+      }),
     });
-    if (res.ok) return json({ success: true });
-    const text = await res.text();
-    if (res.status === 400 && /unique/i.test(text)) return json({ error: 'You are already subscribed' }, 400);
-    return json({ error: 'Could not subscribe' }, 502);
+    if (!res.ok) return json({ error: 'Could not subscribe' }, 502);
+    return json({ success: true });
   } catch {
     return json({ error: 'Could not subscribe' }, 502);
   }

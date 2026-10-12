@@ -21,9 +21,15 @@ pnpm test
   structured data and `llms.txt`.
 - `src/content/blog/`: posts as Markdown; the schema is `src/lib/blog-schema.ts`.
 - `functions/api/`: Cloudflare Pages Functions for `/api/contact` and
-  `/api/subscribe`. Env: `DCM_API_URL`, `DCM_TENANT_SLUG`, `DCM_CATEGORY_SLUG`,
-  `PB_URL` (all have the old site's defaults).
+  `/api/subscribe`. Both send to the DCM contact endpoint. Env: `DCM_API_URL`,
+  `DCM_TENANT_SLUG`, `DCM_CATEGORY_SLUG` (defaults match the old site). The
+  PocketBase CMS is retired and is not used.
 - `public/_redirects`: `/blogs` to `/blog`, consulting-era routes to `/products`.
 - `DESIGN.md`: every colour, type and spacing value.
 
-Deploy: Cloudflare Pages, build command `pnpm build`, output `dist`.
+Deploy: Cloudflare Pages, build command `pnpm build`, output `dist`. CI
+(`.gitlab-ci.yml`) builds with pnpm and publishes `dist` plus `functions/`
+with wrangler: previews for branches, production for `main`.
+
+Workflow: see `.git-workflow.md` (feature branches off `develop`, Tuleap IDs
+in commits, reviewed PR).
