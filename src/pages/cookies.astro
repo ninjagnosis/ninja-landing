@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalBody from '../components/legal/LegalBody.astro';
+import { UPDATED, mail, addresses } from '../components/legal/legal-text';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+const h1 = 'Cookie policy';
+const intro = [
+  'This page explains how the Ninja Infosys LLC website, ninjainfosys.com, uses cookies and similar technologies. The short answer is that it does not.',
+  `Questions: ${mail}.`,
+];
+const sections = [
+  {
+    h: 'What this site uses',
+    p: ['The site does not set cookies, and it does not store anything in your browser. It has:'],
+    list: [
+      'No analytics or visitor tracking.',
+      'No advertising or social media tracking scripts.',
+      'No embedded third-party content, such as maps, videos or chat widgets.',
+      'No accounts or sign-in.',
+    ],
+    after: ['Because there is nothing to consent to, the site does not show a cookie banner.'],
+  },
+  {
+    h: 'What is recorded when you visit',
+    p: ['Like any website, our hosting provider keeps server logs with your IP address, browser type, the pages you request and the time. These are used to deliver the site and keep it secure. The <a href="/privacy">privacy policy</a> explains how they are handled.'],
+  },
+  {
+    h: 'Sites you reach from here',
+    p: ['Pages here link to news articles, our products and social profiles. Those sites may use cookies, under their own policies. Check the policy of each one.'],
+  },
+  {
+    h: 'Controlling cookies in your browser',
+    p: ['Every major browser lets you see, block and delete cookies in its settings. Blocking cookies does not affect how this site works.'],
+  },
+  {
+    h: 'If this changes',
+    p: ['If we add anything that uses cookies, we will update this page and ask for your consent first where the law requires it.'],
+  },
+  {
+    h: 'Contact',
+    p: [`${addresses}. ${mail}.`],
+  },
+];
+---
+<Base
+  title="Cookie policy of Ninja Infosys LLC"
+  description="Ninja Infosys LLC does not use cookies on its website. This page explains what is recorded when you visit and how sites you reach from it work."
+  path="/cookies"
+  jsonLd={[breadcrumbJsonLd([{ name: 'Cookie policy', path: '/cookies' }])]}
+>
+  <LegalBody h1={h1} updated={UPDATED} intro={intro} sections={sections} />
+</Base>
