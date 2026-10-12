@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import Products from '../../components/home/Products.astro';
+import CtaBand from '../../components/site/CtaBand.astro';
+import { breadcrumbJsonLd } from '../../lib/seo';
+---
+<Base title="Products" description="The five products held by Ninja Infosys LLC: eShasan, ePahichan, AirFone, LunaIoT and LunaCam." path="/products" jsonLd={[breadcrumbJsonLd([{ name: 'Products', path: '/products' }])]}>
+  <h1 class="wrap page-h1">Products</h1>
+  <Products heading="The group's products" />
+  <CtaBand />
+</Base>
+
+<style>
+  .page-h1 { padding-top: var(--space-8); }
+</style>

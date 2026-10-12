@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Phone from '@lucide/astro/icons/phone';
+import Mail from '@lucide/astro/icons/mail';
+import MapPin from '@lucide/astro/icons/map-pin';
+import ContactForm from '../components/forms/ContactForm.astro';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL_LINE, SITE_NAME } from '../config/site';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+const ways = [
+  { Icon: Phone, label: 'Phone', value: CONTACT_PHONE_DISPLAY, href: CONTACT_PHONE_TEL },
+  { Icon: Mail, label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+  { Icon: MapPin, label: 'Address', value: LLC_ADDRESS, href: undefined },
+];
+---
+<Base title="Contact" description="Contact Ninja Infosys LLC by phone, email or the form about the group or any of its products." path="/contact" jsonLd={[breadcrumbJsonLd([{ name: 'Contact', path: '/contact' }])]}>
+  <section class="section">
+    <div class="wrap">
+      <h1 data-enter>Contact {SITE_NAME}</h1>
+      <ul class="ways">
+        {ways.map(({ Icon, label, value, href }, i) => (
+          <li data-enter style={`--d:${i + 1}`}>
+            <Icon size={22} stroke-width={1.75} aria-hidden="true" />
+            <div>
+              <p class="label muted">{label}</p>
+              {href ? <a href={href}>{value}</a> : <p class="addr">{value}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div class="more">
+        <h2>Send a message</h2>
+        <ContactForm />
+        <p class="muted small nepal">{NEPAL_LINE}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { margin-bottom: var(--space-7); }
+  .ways { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); border-block: 1px solid var(--line); padding-block: var(--space-6); }
+  .ways li { display: flex; gap: var(--space-4); align-items: flex-start; }
+  .ways :global(svg) { color: var(--link); margin-top: 4px; flex: none; }
+  .label { font-size: 14px; }
+  .ways a, .addr { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+  .ways a:hover { color: var(--link); text-decoration: underline; }
+  .more { margin-top: var(--space-8); }
+  .more h2 { font-size: 1.5rem; margin-bottom: var(--space-5); }
+  .nepal { margin-top: var(--space-7); max-width: var(--measure); }
+  @media (max-width: 767px) { .ways { grid-template-columns: 1fr; } }
+</style>

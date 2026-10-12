@@ -1,0 +1,20 @@
+---
+import { NEPAL_LINE } from '../../config/site';
+---
+<section class="section surface" data-reveal>
+  <div class="wrap grid">
+    <h2>One group, five products</h2>
+    <div class="prose">
+      <p>Ninja Infosys LLC holds and runs a group of software products. Each product has its own site, its own users and its own roadmap. The group decides where to invest, what to build next and what to stop.</p>
+      <p>{NEPAL_LINE}</p>
+      <p><a href="/about">About the group</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .surface { background: var(--surface); }
+  .grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-8); align-items: start; }
+  .section > .wrap > h2:first-child { margin-bottom: 0; }
+  @media (max-width: 767px) { .grid { grid-template-columns: 1fr; gap: var(--space-5); } }
+</style>
