@@ -37,6 +37,12 @@ export function orgJsonLd() {
       postalCode: LLC.postalCode,
       addressCountry: LLC.country,
     },
+    award: [
+      'ASOCIO Digital Government Award 2025',
+      'National ICT Award 2025, Provincial/District Private Sector',
+      'Provincial Startup ICT Recognition Award 2024, Lumbini Province',
+      'Emerging Startup of the Year 2021, Lumbini Province, Kumari Bank NewBiz Startup Summit and Awards',
+    ],
     contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', telephone: CONTACT_PHONE_JSONLD, email: CONTACT_EMAIL, availableLanguage: ['en'] },
     subOrganization: {
       '@type': 'Organization',

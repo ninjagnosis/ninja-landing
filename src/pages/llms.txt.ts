@@ -1,6 +1,7 @@
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 import { products } from '../data/products';
+import { asocio, awards } from '../data/media';
 import { published } from '../lib/blog';
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, NEPAL_LINE, SITE_URL } from '../config/site';
 
@@ -18,6 +19,11 @@ export async function GET(_: APIContext) {
     '',
     ...products.map((p) => `- [${p.name}](${SITE_URL}/products/${p.slug}): ${p.short}`),
     '',
+    '## Awards',
+    '',
+    `- ${asocio.name}, ${asocio.date}, ${asocio.place}. [Media](${SITE_URL}/media)`,
+    ...awards.map((a) => `- ${a.year}: ${a.name}, ${a.by}`),
+    '',
     '## Blog',
     '',
     ...(posts.length ? posts.map((p) => `- [${p.data.title}](${SITE_URL}/blog/${p.id}): ${p.data.description}`) : ['- No posts yet']),
@@ -26,6 +32,7 @@ export async function GET(_: APIContext) {
     '',
     `- [About](${SITE_URL}/about)`,
     `- [Locations](${SITE_URL}/locations)`,
+    `- [Media: awards and press](${SITE_URL}/media)`,
     `- [Careers](${SITE_URL}/careers)`,
     `- [Contact](${SITE_URL}/contact)`,
     `- [Privacy](${SITE_URL}/privacy)`,
