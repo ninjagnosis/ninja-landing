@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalBody from '../components/legal/LegalBody.astro';
+import { UPDATED, mail, addresses, phone } from '../components/legal/legal-text';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+const h1 = 'Terms of service';
+const intro = [
+  'These terms apply when you use the Ninja Infosys LLC website, ninjainfosys.com, and its content. By using the site you agree to them. If you use the site for an organisation, you agree on its behalf and confirm you are allowed to.',
+  'Our products, eShasan, ePahichan, AirFone, LunaIoT and LunaCam, are governed by the terms on their own sites.',
+  `Questions: ${mail}.`,
+];
+const sections = [
+  {
+    h: 'Using the website',
+    p: ['You may read the site and use it for lawful purposes. You agree not to:'],
+    list: [
+      'Try to break, probe or overload the site or the systems behind it.',
+      'Use automated tools to copy the site at a scale that affects its availability.',
+      'Send us anything unlawful, harmful or that infringes the rights of others.',
+      'Use the contact form or newsletter for spam or to misrepresent who you are.',
+    ],
+  },
+  {
+    h: 'Our content',
+    p: [
+      'The text, design, logos and photographs on the site belong to Ninja Infosys LLC or the people who gave us permission to use them. Product names and logos belong to their respective owners.',
+      'You may quote our text and use the logo and photographs in the <a href="/media#press-kit">press kit</a> to report on Ninja Infosys, with credit and a link to ninjainfosys.com. Any other use needs our written permission.',
+    ],
+  },
+  {
+    h: 'Information on the site',
+    p: ['The site gives general information about the company, its products, awards and views. It is not professional, legal, financial or technical advice. We work to keep it accurate and up to date, but it may contain errors or become out of date.'],
+  },
+  {
+    h: 'Posts and opinions',
+    p: ['Posts on the blog are our views on strategy, management and productivity. They are general discussion, not advice for your situation.'],
+  },
+  {
+    h: 'Press and links to other sites',
+    p: ['The Media page and other pages link to news articles and to other sites. We do not control them, and we are not responsible for their content, accuracy or policies.'],
+  },
+  {
+    h: 'Messages you send us',
+    p: ['Messages sent through the site are not confidential unless we agree otherwise in writing. Please do not send passwords, payment details or other sensitive information. Our <a href="/privacy">privacy policy</a> explains how we handle what you send.'],
+  },
+  {
+    h: 'Availability and changes',
+    p: ['We work to keep the site running, but we do not promise that it will always be available or free of errors. We may change, add or remove pages and features at any time.'],
+  },
+  {
+    h: 'Disclaimers',
+    p: ['The site is provided as it is and as available. To the extent the law allows, we make no promises beyond those in these terms, including about the accuracy or completeness of the content.'],
+  },
+  {
+    h: 'Limits on liability',
+    p: ['To the extent the law allows, Ninja Infosys is not liable for indirect or consequential losses arising from your use of the site, such as lost profits or lost business. Nothing in these terms limits liability that cannot be limited by law.'],
+  },
+  {
+    h: 'Changes to these terms',
+    p: ['We may update these terms. We will change the date above and, for significant changes, say so on this page. Using the site after that means you accept the new terms.'],
+  },
+  {
+    h: 'Law and disputes',
+    p: ['These terms are governed by the laws of Nepal. Please talk to us first if something goes wrong; disputes we cannot resolve together go to the courts of Kathmandu.'],
+  },
+  {
+    h: 'Contact',
+    p: [`${addresses}. ${mail}, ${phone}.`],
+  },
+];
+---
+<Base
+  title="Terms of service of Ninja Infosys LLC"
+  description="The terms that apply when you use the Ninja Infosys LLC website and its content, including permitted use, disclaimers, liability and governing law."
+  path="/terms"
+  jsonLd={[breadcrumbJsonLd([{ name: 'Terms of service', path: '/terms' }])]}
+>
+  <LegalBody h1={h1} updated={UPDATED} intro={intro} sections={sections} />
+</Base>

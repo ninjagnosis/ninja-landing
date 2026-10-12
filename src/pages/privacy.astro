@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalBody from '../components/legal/LegalBody.astro';
+import { UPDATED, mail, addresses, phone } from '../components/legal/legal-text';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+const h1 = 'Privacy policy';
+const intro = [
+  'This policy covers the Ninja Infosys LLC website, ninjainfosys.com. Ninja Infosys LLC is at 1500 N Grant St, Ste R, Denver, CO 80203, US, and also operates through Ninja Infosys Pvt. Ltd., a private limited company in Kathmandu. It explains what we collect when you visit the site or write to us, why, who we share it with, how long we keep it, and what you can do about it.',
+  'Our products, eShasan, ePahichan, AirFone, LunaIoT and LunaCam, have their own sites and their own privacy policies.',
+  `Questions about this policy: ${mail}.`,
+];
+const sections = [
+  {
+    h: 'What we collect',
+    list: [
+      '<strong>Messages you send us:</strong> your name, email address and message from the contact form, and whether you agreed that we may contact you about it.',
+      '<strong>The newsletter:</strong> your email address, if you subscribe to new posts.',
+      '<strong>Email and calls:</strong> what you send us by email, and the number and details you give us if you call.',
+      '<strong>Server logs:</strong> your IP address, browser type, the pages you request and the time, kept by our hosting provider to deliver the site and keep it secure.',
+    ],
+    p: ['The site has no accounts, no payments and no tracking of your visits.'],
+  },
+  {
+    h: 'How we use it',
+    list: [
+      'To reply to you and keep a record of the conversation.',
+      'To send you new posts, if you subscribed.',
+      'To keep the site secure, stop abuse and fix problems.',
+      'To meet legal obligations.',
+    ],
+    p: ['We do not sell personal information and we do not use it for advertising.'],
+  },
+  {
+    h: 'Cookies',
+    p: ['This site does not use cookies. You can read more on the <a href="/cookies">cookie policy</a>.'],
+  },
+  {
+    h: 'Who we share it with',
+    p: ['We use a small number of providers to run the site. They process information only on our behalf:'],
+    list: [
+      'Hosting and delivery: Cloudflare serves the site and keeps it secure.',
+      'Our message inbox: the system where contact form messages and newsletter sign-ups are received and stored, operated by Ninja Infosys.',
+      'Advisers and authorities: lawyers, accountants and public authorities, only where the law requires or a legal claim needs it.',
+    ],
+  },
+  {
+    h: 'Where it is stored',
+    p: ['Information is stored with the providers above and in our own systems, which may be located in the United States, Nepal and other countries where those providers operate.'],
+  },
+  {
+    h: 'How long we keep it',
+    list: [
+      'Messages: for as long as needed to reply and to keep a record of our dealings with you.',
+      'Newsletter address: until you unsubscribe or ask us to remove it.',
+      'Server logs: for the short period our hosting provider keeps them.',
+    ],
+  },
+  {
+    h: 'Your choices',
+    list: [
+      `Ask for a copy of your information, or ask us to correct or delete it, by writing to ${mail}.`,
+      'Unsubscribe from new posts at any time by telling us.',
+      'If you agreed that we may contact you, you can withdraw that at any time.',
+    ],
+  },
+  {
+    h: 'Security',
+    p: ['The site is delivered over an encrypted connection, and access to the systems that hold messages is limited to the people who need it. No system is perfectly secure.'],
+  },
+  {
+    h: 'Children',
+    p: ['This site is for businesses and organisations and is not meant for anyone under 16.'],
+  },
+  {
+    h: 'Links to other sites',
+    p: ['Pages here link to news articles, our products and social profiles. Those sites have their own policies, and we are not responsible for how they handle information.'],
+  },
+  {
+    h: 'Changes',
+    p: ['If we change this policy we will update the date above and, for a significant change, say so on this page before it takes effect.'],
+  },
+  {
+    h: 'Contact',
+    p: [`${addresses}. ${mail}, ${phone}.`],
+  },
+];
+---
+<Base
+  title="Privacy policy of Ninja Infosys LLC"
+  description="How Ninja Infosys LLC collects, uses and protects personal data when you use this website, write to the company or subscribe to its posts."
+  path="/privacy"
+  jsonLd={[breadcrumbJsonLd([{ name: 'Privacy policy', path: '/privacy' }])]}
+>
+  <LegalBody h1={h1} updated={UPDATED} intro={intro} sections={sections} />
+</Base>
