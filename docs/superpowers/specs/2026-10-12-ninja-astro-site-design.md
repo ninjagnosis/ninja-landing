@@ -38,7 +38,7 @@ Same set and shape as the reference sites:
 | Route | Pattern source |
 |---|---|
 | `/` | home: hero, products, solutions, trust, CTA band (ePahichan `components/home`) |
-| `/products/[slug]`, `/solutions/[slug]` | data-driven pages from `src/data/products.ts`, `solutions.ts` |
+| `/products/[slug]`, `/solutions/[slug]` | data-driven pages from `src/data/products.ts`, `solutions.ts`. Products are exactly five: eShasan, ePahichan, AirFone, LunaIoT, LunaCam (`/products/eshasan`, `/epahichan`, `/airfone`, `/lunaiot`, `/lunacam`). Each links out to its own site. |
 | `/services`, `/about`, `/partners`, `/locations`, `/careers`, `/contact` | one designed page each |
 | `/blog`, `/blog/[slug]`, `/blog/page/[n]`, `/blog/tag/[tag]` | content collection, paginated |
 | `/glossary` and `/glossary/[slug]` | only if there is source content; otherwise dropped |
@@ -46,8 +46,7 @@ Same set and shape as the reference sites:
 | `/thanks`, `/404` | as in the reference sites |
 | `/sitemap.xml`, `/robots.txt`, `/rss.xml`, `/llms.txt`, `/og/*.png` | generated |
 
-Old routes keep their URLs (`/blogs` becomes `/blog` with a permanent redirect
-from `/blogs` and `/blogs/[slug]`). Trailing-slash behaviour is kept as configured.
+Old routes keep their URLs, except blogs: `/blogs` and `/blogs/[slug]` redirect to `/blog`. Trailing-slash behaviour is kept as configured.
 
 ## SEO (carried over and extended)
 
@@ -63,17 +62,19 @@ from `/blogs` and `/blogs/[slug]`). Trailing-slash behaviour is kept as configur
 
 ## Blogs
 
-- Source today is the DCM API and PocketBase, rendered at build time.
-- Rebuild: a build-time loader fetches posts (title, category, description,
-  thumbnail, body, slug, date) into the Astro content collection, validated by a
-  schema that fails the build on a missing or wrong field. If the API is
-  unreachable the build uses the last committed snapshot of
-  `src/content/blog`, so an outage never produces an empty blog.
-- Existing posts keep their slugs, dates and images.
+- New blogs only. The old posts are not migrated, and the DCM and PocketBase blog
+  sources are dropped.
+- Posts are Markdown files in `src/content/blog`, validated by a schema that
+  fails the build on a missing or wrong field, as in the reference sites. No
+  author byline; posts are by Ninja Infosys LLC.
+- Posts are written by the owner (or drafted on request). The blog index and
+  RSS feed are generated from whatever posts exist.
+- Old `/blogs` and `/blogs/[slug]` URLs redirect permanently to `/blog` so
+  indexed links do not 404.
 
 ## Content sources
 
-- Team, partners, banners, testimonials, solutions cards: fetched at build time
+- Team, partners, banners, testimonials: fetched at build time
   from DCM and PocketBase with the same fallbacks as today, written to
   `src/data` snapshots.
 - Language: English and Nepali strings kept in one dictionary. Whether the
