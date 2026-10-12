@@ -77,7 +77,7 @@ export const press: Article[] = [
 
 // Short description for journalists, directories and award listings.
 export const boilerplate =
-  'Ninja Infosys LLC designs, builds and operates software for organisations and the people who depend on them. Its products include eShasan, ePahichan, AirFone, LunaIoT and LunaCam. The company also operates through Ninja Infosys Pvt. Ltd., a private limited company in Kathmandu. Ninja Infosys received the ASOCIO Digital Government Award in 2025.';
+  'Ninja Infosys LLC designs, builds and operates software for organisations and the people who depend on them. Its products include eShasan, ePahichan, AirFone, LunaIoT and LunaCam. The company also operates through Ninja Infosys Pvt. Ltd., a private limited company in Kathmandu. The company is certified to ISO 9001:2015 and received the ASOCIO Digital Government Award in 2025.';
 
 export interface KitFile { file: string; label: string; detail: string }
 export const pressKit: KitFile[] = [
@@ -107,6 +107,10 @@ export const faq: Faq[] = [
   {
     q: 'What other awards has Ninja Infosys received?',
     a: 'Ninja Infosys received the National ICT Award in 2025 in the provincial and district private sector category, the Provincial Startup ICT Recognition Award in 2024 for Lumbini Province, and the Kumari Bank NewBiz Startup Summit and Awards honour for Emerging Startup of the Year 2021 for Lumbini Province.',
+  },
+  {
+    q: 'Is Ninja Infosys ISO certified?',
+    a: 'Yes. Ninja Infosys is certified to ISO 9001:2015, the international standard for quality management systems.',
   },
   {
     q: 'Where can I find photographs and a logo for press use?',
