@@ -75,11 +75,12 @@ Old routes keep their URLs, except blogs: `/blogs` and `/blogs/[slug]` redirect 
   sources are dropped.
 - Topics are management and business, from the point of view of a holding
   company: running a group of product companies, building and operating
-  products, governance, finance and operations, hiring and teams, strategy, and
+  products, governance, finance and operations, hiring and teams, strategy, productivity
+  and how teams get work done, and
   lessons from the group's own products. Product launch and company news are
   allowed but are not the main content.
 - Each post carries one topic tag (management, strategy, operations, finance,
-  people, products). A post may also name the product it draws on. `/blog/tag/[tag]`
+  people, productivity, products). A post may also name the product it draws on. `/blog/tag/[tag]`
   gives one feed per topic.
 - Posts are Markdown files in `src/content/blog`, validated by a schema that
   fails the build on a missing or wrong field, as in the reference sites. No
