@@ -1,21 +1,18 @@
 stages:
-  - build
-  - deploy
+  - verify
 
 variables:
   NODE_VERSION: "22"
-  PROJECT_NAME: "ninja-landing"
-  BUILD_DIR: "dist"
-  PNPM_HOME: "$CI_PROJECT_DIR/.pnpm-store"
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-    - .pnpm-store/
 
-build:
-  stage: build
+# Cloudflare Workers Builds builds and deploys from this repository, so this
+# pipeline only checks that the site builds, passes the audit and the tests.
+verify:
+  stage: verify
   image: node:${NODE_VERSION}-trixie
   before_script:
     - corepack enable
@@ -24,42 +21,5 @@ build:
     - pnpm test
     - pnpm build
     - pnpm check
-    - test -d ${BUILD_DIR} || (echo "${BUILD_DIR} not found" && exit 1)
-  artifacts:
-    paths:
-      - ${BUILD_DIR}/
-      - functions/
-    expire_in: 1 day
   rules:
     - if: $CI_COMMIT_BRANCH
-
-# wrangler publishes ./functions next to the output directory, so run it from
-# the repository root.
-deploy:preview:
-  stage: deploy
-  image: node:${NODE_VERSION}-alpine
-  dependencies:
-    - build
-  before_script:
-    - npm install -g wrangler@latest
-  script:
-    - wrangler pages deploy ${BUILD_DIR} --project-name=${PROJECT_NAME} --branch=${CI_COMMIT_REF_NAME} --commit-hash=${CI_COMMIT_SHA}
-  environment:
-    name: preview/$CI_COMMIT_REF_SLUG
-  rules:
-    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main" && $CI_COMMIT_BRANCH != "master"
-
-deploy:production:
-  stage: deploy
-  image: node:${NODE_VERSION}-alpine
-  dependencies:
-    - build
-  before_script:
-    - npm install -g wrangler@latest
-  script:
-    - wrangler pages deploy ${BUILD_DIR} --project-name=${PROJECT_NAME} --branch=main
-  environment:
-    name: production
-    url: https://ninjainfosys.com
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
