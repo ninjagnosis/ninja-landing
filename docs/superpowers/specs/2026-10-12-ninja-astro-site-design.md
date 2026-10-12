@@ -73,10 +73,14 @@ Old routes keep their URLs, except blogs: `/blogs` and `/blogs/[slug]` redirect 
 
 - New blogs only. The old posts are not migrated, and the DCM and PocketBase blog
   sources are dropped.
-- Topics are about the group: Ninja Infosys LLC and its five products
-  (eShasan, ePahichan, AirFone, LunaIoT, LunaCam), their launches, how they work
-  and company news. Each post is tagged with the product or "group" it belongs
-  to, and `/blog/tag/[tag]` pages give one feed per product.
+- Topics are management and business, from the point of view of a holding
+  company: running a group of product companies, building and operating
+  products, governance, finance and operations, hiring and teams, strategy, and
+  lessons from the group's own products. Product launch and company news are
+  allowed but are not the main content.
+- Each post carries one topic tag (management, strategy, operations, finance,
+  people, products). A post may also name the product it draws on. `/blog/tag/[tag]`
+  gives one feed per topic.
 - Posts are Markdown files in `src/content/blog`, validated by a schema that
   fails the build on a missing or wrong field, as in the reference sites. No
   author byline; posts are by Ninja Infosys LLC.
