@@ -26,7 +26,10 @@ const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/p
   <section class="section">
     <div class="wrap grid">
       <div>
-        <h1 data-enter>{p.headline}</h1>
+        <div class="title" data-enter>
+          <img class="mark" src={p.logo} alt={`${p.name} logo`} width="64" height="64" />
+          <h1>{p.headline}</h1>
+        </div>
         <p class="lead" data-enter style="--d:1">{p.description}</p>
         <div class="actions" data-enter style="--d:2">
           <a class="btn btn-primary" href={p.url} rel="noopener">Visit {p.host} <ExternalLink size={18} aria-hidden="true" /></a>
@@ -60,6 +63,9 @@ const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/p
 
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+  .title { display: flex; align-items: center; gap: var(--space-4); }
+  .mark { width: 64px; height: 64px; object-fit: contain; flex: none; }
+  @media (max-width: 599px) { .mark { width: 48px; height: 48px; } }
   .lead { margin-top: var(--space-5); font-size: 1.25rem; color: var(--ink-muted); max-width: 40ch; }
   .actions { margin-top: var(--space-6); }
   .visual { width: 100%; border-radius: var(--radius-panel); border: 1px solid var(--line); object-fit: cover; }

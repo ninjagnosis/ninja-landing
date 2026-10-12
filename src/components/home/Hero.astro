@@ -17,6 +17,7 @@ const words = 'Ninja Infosys LLC'.split(' ');
       {products.map((p) => (
         <li>
           <a href={`/products/${p.slug}`}>
+            <img class="logo" src={p.logo} alt="" width="36" height="36" loading="lazy" />
             <span class="name">{p.name}</span>
             <span class="short">{p.short}</span>
             <ArrowRight class="go" size={20} stroke-width={2} aria-hidden="true" />
@@ -35,10 +36,12 @@ const words = 'Ninja Infosys LLC'.split(' ');
   .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
   .panel { list-style: none; margin: 0; padding: var(--space-2) var(--space-5); background: var(--canvas); color: var(--ink); border-radius: var(--radius-panel); }
   .panel li + li { border-top: 1px solid var(--line); }
-  .panel a { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-4) 0; color: var(--ink); text-decoration: none; }
+  .panel a { display: grid; grid-template-columns: 36px 1fr auto; gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-4) 0; color: var(--ink); text-decoration: none; }
   .name { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; transition: color var(--fast) var(--ease); }
-  .short { grid-column: 1; font-size: 15px; color: var(--ink-muted); }
-  .panel :global(.go) { grid-column: 2; grid-row: 1 / 3; color: var(--link); transition: transform var(--fast) var(--ease); }
+  .logo { grid-column: 1; grid-row: 1 / 3; width: 36px; height: 36px; object-fit: contain; }
+  .name { grid-column: 2; }
+  .short { grid-column: 2; font-size: 15px; color: var(--ink-muted); }
+  .panel :global(.go) { grid-column: 3; grid-row: 1 / 3; color: var(--link); transition: transform var(--fast) var(--ease); }
   .panel a:hover .name { color: var(--link); }
   .panel a:hover :global(.go) { transform: translateX(4px); }
   @media (max-width: 959px) {

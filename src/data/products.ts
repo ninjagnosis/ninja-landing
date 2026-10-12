@@ -9,6 +9,7 @@ export interface Product {
   highlights: string[];
   url: string;
   host: string;
+  logo: string;
   image?: string;
   imageAlt?: string;
   /** Blog tags whose posts are listed on the product page. */
@@ -18,6 +19,7 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: 'eshasan',
+    logo: '/logos/eshasan.svg',
     name: 'eShasan',
     short: 'An ERP platform for governments, NGOs and enterprises.',
     headline: 'eShasan, management software for institutions',
@@ -37,6 +39,7 @@ export const products: Product[] = [
   },
   {
     slug: 'epahichan',
+    logo: '/logos/epahichan.svg',
     name: 'ePahichan',
     short: 'Digital signatures, signed in the browser.',
     headline: 'ePahichan, digital signatures',
@@ -56,6 +59,7 @@ export const products: Product[] = [
   },
   {
     slug: 'airfone',
+    logo: '/logos/airfone.svg',
     name: 'AirFone',
     short: 'A business phone system with an agent that answers calls.',
     headline: 'AirFone, a business phone system',
@@ -75,6 +79,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lunaiot',
+    logo: '/logos/lunaiot.png',
     name: 'LunaIoT',
     short: 'GPS vehicle tracking and IoT.',
     headline: 'LunaIoT, GPS tracking and IoT',
@@ -94,6 +99,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lunacam',
+    logo: '/logos/lunacam.svg',
     name: 'LunaCam',
     short: 'View cameras and DVRs from your phone.',
     headline: 'LunaCam, camera viewing and recording',

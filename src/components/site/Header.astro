@@ -15,7 +15,7 @@ const groups = [
     id: 'products',
     label: 'Products',
     base: '/products',
-    links: products.map((p) => ({ href: `/products/${p.slug}`, label: p.name })),
+    links: products.map((p) => ({ href: `/products/${p.slug}`, label: p.name, logo: p.logo })),
     feature: { title: 'Notes on strategy and management', href: '/blog', cta: 'Read the blog' },
   },
 ];
@@ -52,7 +52,7 @@ const plain = [
                 <div class="wrap mega-grid">
                   <ul class="mega-links">
                     {g.links.map((l) => (
-                      <li><a href={l.href} aria-current={current(l.href)}><span class="m-name">{l.label}</span></a></li>
+                      <li><a href={l.href} aria-current={current(l.href)}>{(l as any).logo && <img class="m-logo" src={(l as any).logo} alt="" width="28" height="28" />}<span class="m-name">{l.label}</span></a></li>
                     ))}
                   </ul>
                   <a class="mega-feature" href={g.feature.href}>
@@ -217,6 +217,8 @@ const plain = [
   .mega-links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--space-7); }
   .mega-links a { display: block; padding: var(--space-4) 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
   .mega-links li:nth-child(-n+2) a { border-top: 0; }
+  .mega-links a { display: flex; align-items: center; gap: var(--space-3); }
+  .m-logo { width: 28px; height: 28px; object-fit: contain; flex: none; }
   .m-name { font-size: 17px; font-weight: 600; transition: color var(--fast) var(--ease); }
   .mega-links a:hover .m-name, .mega-links a[aria-current='page'] .m-name { color: var(--link); }
   .mega-feature {
