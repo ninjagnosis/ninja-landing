@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Legal.astro
-title: Cookie policy
-description: How the Ninja Infosys LLC website uses cookies and similar technologies, and how to control them.
+title: Cookie policy of Ninja Infosys LLC
+description: Which cookies and similar technologies the Ninja Infosys LLC website uses, why it uses them and how you can control or disable them in your browser.
 ---
 
 # Cookie policy

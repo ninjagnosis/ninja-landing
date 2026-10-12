@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Legal.astro
-title: Terms of service
-description: The terms that apply when you use the Ninja Infosys LLC website and its content.
+title: Terms of service of Ninja Infosys LLC
+description: The terms that apply when you use the Ninja Infosys LLC website, its content and its services, including liability, governing law and contact details.
 ---
 
 # Terms of service

@@ -1,5 +1,5 @@
 ---
-title: "What the group should decide, and what it should leave to each product"
+title: "What a group should decide, and what to leave to each product"
 description: A company with several products has to decide where money and attention go. Here is what the group should decide for its products, and what to leave to them.
 date: 2026-10-12
 tags: [strategy, management]
