@@ -54,6 +54,8 @@ The event was held at Ninja Infosys, with the team that designed, built and test
 Each member of the team had their photo taken in front of the launch backdrop. AirFone is the work of engineers, designers, testers and the people who talked to businesses about what they needed. Every one of them is part of this launch.
 
 <div class="photo-grid">
+  <img src="/media/airfone-launch/team-9.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
+  <img src="/media/airfone-launch/team-10.webp" alt="A member of the AirFone team holding an AirFone brochure in front of the launch backdrop" width="700" height="1244" loading="lazy" />
   <img src="/media/airfone-launch/team-1.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
   <img src="/media/airfone-launch/team-2.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
   <img src="/media/airfone-launch/team-3.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
