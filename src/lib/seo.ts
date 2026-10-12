@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, CONTACT_PHONE_JSONLD, LLC, NEPAL, SITE_NAME, SITE_URL } from '../config/site';
+import { CERTIFICATIONS, CONTACT_EMAIL, CONTACT_PHONE_JSONLD, LLC, NEPAL, SITE_NAME, SITE_URL } from '../config/site';
 
 /** The one URL a page is known by: lowercase, no query, no .html, no trailing slash except root. */
 export function canonicalFor(path: string): string {
@@ -37,6 +37,7 @@ export function orgJsonLd() {
       postalCode: LLC.postalCode,
       addressCountry: LLC.country,
     },
+    hasCertification: CERTIFICATIONS.map((c) => ({ '@type': 'Certification', name: c.name, description: c.description })),
     award: [
       'ASOCIO Digital Government Award 2025',
       'National ICT Award 2025, Provincial/District Private Sector',

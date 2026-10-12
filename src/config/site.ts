@@ -21,6 +21,12 @@ export const LLC = {
 } as const;
 export const LLC_ADDRESS = `${LLC.street}, ${LLC.locality}, ${LLC.region} ${LLC.postalCode}, ${LLC.country}`;
 
+/** Certifications held by the company. Add the certifying body and number here when they are available. */
+export const CERTIFICATIONS = [
+  { name: 'ISO 9001:2015', description: 'Quality management systems' },
+] as const;
+export const CERTIFIED_LINE = `Certified to ${CERTIFICATIONS.map((c) => c.name).join(' and ')}.`;
+
 /**
  * The Nepal entity. One supporting line in the footer, contact and legal
  * pages. Registration details are shown only when they are filled in.

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Products from '../components/home/Products.astro';
 import CtaBand from '../components/site/CtaBand.astro';
-import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
+import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME, CERTIFICATIONS } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
 
 ---
@@ -26,6 +26,17 @@ import { breadcrumbJsonLd } from '../lib/seo';
   <section class="section-tight" data-reveal>
     <div class="wrap">
       <p class="recog">Recognition and coverage, including the ASOCIO Digital Government Award 2025: <a href="/media">awards and press</a>.</p>
+    </div>
+  </section>
+
+  <section class="section surface" data-reveal>
+    <div class="wrap">
+      <h2>Certification</h2>
+      <ul class="certs">
+        {CERTIFICATIONS.map((c) => (
+          <li><p class="cert-name">{c.name}</p><p class="cert-note">{c.description}. {SITE_NAME} is certified to this international standard.</p></li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -60,6 +71,12 @@ import { breadcrumbJsonLd } from '../lib/seo';
   .offices p { color: var(--ink-muted); }
   .offices p + p { margin-top: var(--space-1); }
   .recog { max-width: 40em; }
+  .surface { background: var(--surface); }
+  .certs { list-style: none; margin: 0; padding: 0; max-width: 40em; }
+  .certs li { padding: var(--space-4) 0; border-top: 1px solid var(--line); }
+  .certs li:last-child { border-bottom: 1px solid var(--line); }
+  .cert-name { font-family: var(--font-display); font-weight: 600; font-size: 1.375rem; }
+  .cert-note { margin-top: var(--space-1); color: var(--ink-muted); }
   .more { margin-top: var(--space-7); font-weight: 500; }
   .section > .wrap > h2:first-child { margin-bottom: var(--space-6); }
   @media (max-width: 767px) { .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
