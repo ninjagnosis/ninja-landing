@@ -6,8 +6,6 @@ import People from '../components/about/People.astro';
 import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
 
-const shared = ['Finance and accounting', 'Hiring and people', 'Strategy and investment', 'Legal, security and brand rules'];
-const perProduct = ['Roadmap and releases', 'Customers and support', 'Pricing and partners', 'Day-to-day decisions'];
 ---
 <Base
   title="About"
@@ -27,22 +25,6 @@ const perProduct = ['Roadmap and releases', 'Customers and support', 'Pricing an
   <Products heading="What we run" />
 
   <People />
-
-  <section class="section surface" data-reveal>
-    <div class="wrap">
-      <h2>How the work is split</h2>
-      <div class="split">
-        <div>
-          <h3>Shared by the group</h3>
-          <ul>{shared.map((s) => <li>{s}</li>)}</ul>
-        </div>
-        <div>
-          <h3>Owned by each product</h3>
-          <ul>{perProduct.map((s) => <li>{s}</li>)}</ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="section" data-reveal>
     <div class="wrap">
@@ -69,17 +51,12 @@ const perProduct = ['Roadmap and releases', 'Customers and support', 'Pricing an
 
 <style>
   .lead { margin-top: var(--space-5); max-width: 38em; font-size: 1.25rem; color: var(--ink-muted); }
-  .surface { background: var(--surface); }
-  .split, .offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
-  h3 { margin-bottom: var(--space-4); }
-  .split ul { list-style: none; margin: 0; padding: 0; }
-  .split li { padding: var(--space-3) 0; border-top: 1px solid var(--line); }
-  .split li:last-child { border-bottom: 1px solid var(--line); }
+  .offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+  h3 { margin-bottom: var(--space-3); }
   .offices > div { border-top: 1px solid var(--line); padding-top: var(--space-5); }
-  .offices h3 { margin-bottom: var(--space-3); }
   .offices p { color: var(--ink-muted); }
   .offices p + p { margin-top: var(--space-1); }
   .more { margin-top: var(--space-7); font-weight: 500; }
   .section > .wrap > h2:first-child { margin-bottom: var(--space-6); }
-  @media (max-width: 767px) { .split, .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
+  @media (max-width: 767px) { .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
 </style>
