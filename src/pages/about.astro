@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Products from '../components/home/Products.astro';
 import CtaBand from '../components/site/CtaBand.astro';
+import People from '../components/about/People.astro';
 import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
 
@@ -24,6 +25,8 @@ const perProduct = ['Roadmap and releases', 'Customers and support', 'Pricing an
   </section>
 
   <Products heading="What we run" />
+
+  <People />
 
   <section class="section surface" data-reveal>
     <div class="wrap">
