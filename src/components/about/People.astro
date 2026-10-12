@@ -1,11 +1,11 @@
 ---
-import { people, initials } from '../../data/people';
+import { leadership, team, people, initials } from '../../data/people';
 ---
 <section class="section" data-reveal aria-labelledby="people-h">
   <div class="wrap">
     <h2 id="people-h">Leadership</h2>
     <ul class="grid" data-stagger>
-      {people.map((p, i) => (
+      {leadership.map((p, i) => (
         <li style={`--i:${i}`}>
           <button type="button" class="person" data-open={p.slug} aria-haspopup="dialog">
             {p.photo
@@ -17,6 +17,24 @@ import { people, initials } from '../../data/people';
         </li>
       ))}
     </ul>
+    {team.length > 0 && (
+      <>
+        <h2 class="team-h">Team</h2>
+        <ul class="grid" data-stagger>
+          {team.map((p, i) => (
+            <li style={`--i:${i}`}>
+              <button type="button" class="person" data-open={p.slug} aria-haspopup="dialog">
+                {p.photo
+                  ? <img src={p.photo} alt="" width="480" height="480" loading="lazy" />
+                  : <span class="mark" aria-hidden="true">{initials(p.name)}</span>}
+                <span class="name">{p.name}</span>
+                <span class="role">{p.role}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
   </div>
 
   {people.map((p) => (
@@ -49,6 +67,7 @@ import { people, initials } from '../../data/people';
 </script>
 
 <style>
+  .team-h { margin-top: var(--space-9); margin-bottom: var(--space-6); }
   .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-7) var(--space-5); }
   .person { display: grid; gap: var(--space-1); width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; color: var(--ink); }
   .person img, .mark { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: var(--radius-panel); background: var(--surface); margin-bottom: var(--space-3); transition: opacity var(--fast) var(--ease); }

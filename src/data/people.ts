@@ -10,7 +10,7 @@ export interface Person {
   linkedin?: string;
 }
 
-export const people: Person[] = [
+const fallback: Person[] = [
   {
     slug: 'ramesh-chhetri',
     name: 'Ramesh Chhetri',
@@ -29,3 +29,12 @@ export const people: Person[] = [
 
 export const initials = (name: string) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+
+// DCM snapshot written by scripts/fetch-people.mjs at build time. When it has
+// people, it replaces the fallback above.
+const snapshots = import.meta.glob<{ leadership: Person[]; team: Person[] }>('./people.generated.json', { eager: true, import: 'default' });
+const snap = Object.values(snapshots)[0];
+
+export const leadership: Person[] = snap?.leadership?.length ? snap.leadership : fallback;
+export const team: Person[] = snap?.team ?? [];
+export const people: Person[] = [...leadership, ...team];
