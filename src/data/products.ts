@@ -19,7 +19,7 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: 'eshasan',
-    logo: '/logos/eshasan.svg',
+    logo: '/logos/eshasan.png',
     name: 'eShasan',
     short: 'An ERP platform for governments, NGOs and enterprises.',
     headline: 'eShasan, management software for institutions',
@@ -39,7 +39,7 @@ export const products: Product[] = [
   },
   {
     slug: 'epahichan',
-    logo: '/logos/epahichan.svg',
+    logo: '/logos/epahichan.png',
     name: 'ePahichan',
     short: 'Digital signatures, signed in the browser.',
     headline: 'ePahichan, digital signatures',
@@ -59,7 +59,7 @@ export const products: Product[] = [
   },
   {
     slug: 'airfone',
-    logo: '/logos/airfone.svg',
+    logo: '/logos/airfone.png',
     name: 'AirFone',
     short: 'A business phone system with an agent that answers calls.',
     headline: 'AirFone, a business phone system',
@@ -99,7 +99,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lunacam',
-    logo: '/logos/lunacam.svg',
+    logo: '/logos/lunacam.png',
     name: 'LunaCam',
     short: 'View cameras and DVRs from your phone.',
     headline: 'LunaCam, camera viewing and recording',
