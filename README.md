@@ -17,7 +17,7 @@ pnpm test
 - `src/config/site.ts`: company name, addresses, phone, email. The Nepal entity
   registration and PAN numbers are `null` until the owner supplies them; they
   are shown only when set.
-- `src/data/products.ts`: the five products. One source for pages, menus,
+- `src/data/products.ts`: the products. One source for pages, menus,
   structured data and `llms.txt`.
 - `src/content/blog/`: posts as Markdown; the schema is `src/lib/blog-schema.ts`.
 - `functions/api/`: Cloudflare Pages Functions for `/api/contact` and

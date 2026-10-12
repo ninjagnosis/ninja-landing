@@ -45,5 +45,5 @@ gutter 16px (32px from 768px). Sections 96px (64px on phones).
 
 ## Pages
 
-Home, five products (`/products/*`), about, locations, careers, contact,
+Home, products (`/products/*`), about, locations, careers, contact,
 blog (`/blog`, paginated, tag pages), terms, privacy, cookies.

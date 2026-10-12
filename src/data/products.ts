@@ -1,4 +1,4 @@
-// The five products in the group. One source for the product pages, the
+// The products in the group. One source for the product pages, the
 // menus, the home page, structured data and llms.txt.
 export interface Product {
   slug: string;

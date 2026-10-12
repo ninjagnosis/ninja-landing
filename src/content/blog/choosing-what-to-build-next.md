@@ -1,6 +1,6 @@
 ---
-title: "Choosing what to build next across a group of products"
-description: With five products and one budget, the next thing to build is a portfolio question first. A simple way to compare requests from different products fairly.
+title: "Choosing what to build next across several products"
+description: With several products and one budget, the next thing to build is a portfolio question first. A simple way to compare requests from different products fairly.
 date: 2026-10-05
 tags: [strategy, products]
 faq:
