@@ -1,0 +1,12 @@
+# Blogs moved from /blogs to /blog.
+/blogs /blog 301
+/blogs/* /blog 301
+# Consulting-era pages no longer exist.
+/services /products 301
+/solutions /products 301
+/solutions/* /products 301
+/partners /about 301
+# Old product ids.
+/products/luna-iot /products/lunaiot 301
+/products/digital-palika /products 301
+/products/icms /products 301

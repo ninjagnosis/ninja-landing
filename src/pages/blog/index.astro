@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/blog/PostList.astro';
+import Pager from '../../components/blog/Pager.astro';
+import Topics from '../../components/blog/Topics.astro';
+import SubscribeForm from '../../components/forms/SubscribeForm.astro';
+import { posts } from '../../lib/posts';
+import { PAGE_SIZE, allTags, tagLabel } from '../../lib/blog';
+import { breadcrumbJsonLd } from '../../lib/seo';
+
+const all = await posts();
+const items = all.slice(0, PAGE_SIZE);
+const last = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+const tags = allTags(all.map((p) => ({ ...p, data: { ...p.data, draft: false } })));
+---
+<Base title="Blog" description="Notes on strategy, management and productivity from Ninja Infosys LLC." path="/blog" jsonLd={[breadcrumbJsonLd([{ name: 'Blog', path: '/blog' }])]}>
+  <section class="section blog-serif">
+    <div class="wrap">
+      <h1>Blog</h1>
+      <Topics tags={tags} />
+      {items.length ? <PostList items={items} feature /> : <p class="muted">The first posts are on their way.</p>}
+      <Pager current={1} last={last} />
+      <div class="subscribe"><h2>Get new posts by email</h2><SubscribeForm /></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { margin-bottom: var(--space-6); }
+  .subscribe { margin-top: var(--space-9); }
+  .subscribe h2 { font-size: 1.5rem; margin-bottom: var(--space-4); }
+</style>

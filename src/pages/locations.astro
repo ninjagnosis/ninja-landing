@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import MapPin from '@lucide/astro/icons/map-pin';
+import Phone from '@lucide/astro/icons/phone';
+import Mail from '@lucide/astro/icons/mail';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL, NEPAL_ADDRESS, SITE_NAME } from '../config/site';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+const offices = [
+  { city: 'Denver', name: SITE_NAME, address: LLC_ADDRESS },
+  { city: 'Kathmandu', name: NEPAL.legalName, address: NEPAL_ADDRESS },
+];
+---
+<Base title="Locations" description="Ninja Infosys LLC offices in Denver, Colorado and Kathmandu, with phone and email for the group." path="/locations" jsonLd={[breadcrumbJsonLd([{ name: 'Locations', path: '/locations' }])]}>
+  <section class="section">
+    <div class="wrap">
+      <h1 data-enter>Locations</h1>
+      <ul class="offices">
+        {offices.map((o, i) => (
+          <li data-enter style={`--d:${i + 1}`}>
+            <h2>{o.city}</h2>
+            <p class="who">{o.name}</p>
+            <p class="row"><MapPin size={20} stroke-width={1.75} aria-hidden="true" /><span>{o.address}</span></p>
+            <p class="row"><Phone size={20} stroke-width={1.75} aria-hidden="true" /><a href={CONTACT_PHONE_TEL}>{CONTACT_PHONE_DISPLAY}</a></p>
+            <p class="row"><Mail size={20} stroke-width={1.75} aria-hidden="true" /><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { margin-bottom: var(--space-7); }
+  .offices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+  .offices li { border-top: 1px solid var(--line); padding-top: var(--space-5); }
+  h2 { font-size: 1.5rem; }
+  .who { margin-top: var(--space-1); color: var(--ink-muted); }
+  .row { display: flex; gap: var(--space-3); align-items: flex-start; margin-top: var(--space-3); }
+  .row :global(svg) { flex: none; color: var(--link); margin-top: 3px; }
+  @media (max-width: 767px) { .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
+</style>

@@ -1,0 +1,47 @@
+---
+import { footerColumns } from '../../data/nav';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, LLC_ADDRESS, NEPAL_LINE, SITE_NAME } from '../../config/site';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <a class="logo" href="/" aria-label="Ninja Infosys LLC home">
+          <img src="/brand/ninja-mark-64.png" alt="" width="40" height="40" aria-hidden="true" />
+          <span>Ninja Infosys</span>
+        </a>
+        <p class="contact">
+          <a href={CONTACT_PHONE_TEL}>{CONTACT_PHONE_DISPLAY}</a><br />
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a><br />
+          <span class="muted">{SITE_NAME}, {LLC_ADDRESS}</span>
+        </p>
+      </div>
+      {footerColumns.map((col) => (
+        <nav aria-label={col.title}>
+          <h2 class="col-title">{col.title}</h2>
+          <ul>{col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </nav>
+      ))}
+    </div>
+    <p class="legal muted">© {new Date().getFullYear()} {SITE_NAME}. {NEPAL_LINE}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--surface); padding: var(--space-9) 0 var(--space-6); }
+  .top { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: var(--space-6); }
+  .logo { display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
+  .logo img { width: 40px; height: auto; }
+  .contact { font-size: 14px; line-height: 1.8; color: var(--ink-muted); }
+  .contact a { color: var(--ink-muted); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .col-title { font-size: 14px; font-weight: 600; margin-bottom: var(--space-3); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li a { display: inline-block; padding: 4px 0; color: var(--ink-muted); text-decoration: none; font-size: 14px; }
+  li a:hover { color: var(--ink); text-decoration: underline; }
+  .legal { font-size: 13px; margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--line); }
+  @media (max-width: 959px) {
+    .top { grid-template-columns: 1fr 1fr; }
+    .brand { grid-column: 1 / -1; }
+  }
+</style>

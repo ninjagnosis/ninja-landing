@@ -1,0 +1,35 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import { products } from '../../data/products';
+export interface Props { heading?: string }
+const { heading = 'Products' } = Astro.props;
+---
+<section class="section" data-reveal>
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <ul class="list" data-stagger>
+      {products.map((p, i) => (
+        <li style={`--i:${i}`}>
+          <a href={`/products/${p.slug}`}>
+            <img class="logo" src={p.logo} alt="" width="40" height="40" loading="lazy" />
+            <span class="name">{p.name}</span>
+            <span class="short muted">{p.short}</span>
+            <ArrowRight class="go" size={20} stroke-width={2} aria-hidden="true" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  a { display: grid; grid-template-columns: 40px minmax(0, 1fr) minmax(0, 1.6fr) auto; align-items: center; gap: var(--space-5); padding: var(--space-5) 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+  .name { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; transition: color var(--fast) var(--ease); }
+  .logo { width: 40px; height: 40px; object-fit: contain; }
+  .short { font-size: 16px; }
+  a :global(.go) { color: var(--link); transition: transform var(--fast) var(--ease); }
+  a:hover .name { color: var(--link); }
+  a:hover :global(.go) { transform: translateX(4px); }
+  @media (max-width: 767px) { a { grid-template-columns: 40px 1fr auto; gap: var(--space-1) var(--space-4); } .logo { grid-row: 1 / 3; } .name { grid-column: 2; } .short { grid-column: 2; grid-row: 2; } a :global(.go) { grid-row: 1 / 3; grid-column: 3; } }
+</style>

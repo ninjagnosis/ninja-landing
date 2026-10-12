@@ -1,0 +1,51 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import { products } from '../../data/products';
+const words = 'Ninja Infosys LLC'.split(' ');
+---
+<section class="hero on-stage">
+  <div class="wrap grid">
+    <div class="copy">
+      <h1 class="display">{words.map((w, i) => (<><span class="w"><span style={`--i:${i}`}>{w}</span></span>{' '}</>))}</h1>
+      <p class="sub">Software for businesses and institutions.</p>
+      <div class="actions">
+        <a class="btn btn-light" href="/about">About us</a>
+        <a class="btn btn-secondary" href="/contact">Contact us</a>
+      </div>
+    </div>
+    <ul class="panel" aria-label="Products">
+      {products.map((p) => (
+        <li>
+          <a href={`/products/${p.slug}`}>
+            <img class="logo" src={p.logo} alt="" width="36" height="36" loading="lazy" />
+            <span class="name">{p.name}</span>
+            <span class="short">{p.short}</span>
+            <ArrowRight class="go" size={20} stroke-width={2} aria-hidden="true" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: var(--space-9); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+  .display { max-width: 12ch; }
+  .sub { margin-top: var(--space-5); max-width: 32ch; font-size: 1.25rem; color: var(--stage-muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
+  .panel { list-style: none; margin: 0; padding: var(--space-2) var(--space-5); background: var(--canvas); color: var(--ink); border-radius: var(--radius-panel); }
+  .panel li + li { border-top: 1px solid var(--line); }
+  .panel a { display: grid; grid-template-columns: 36px 1fr auto; gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-4) 0; color: var(--ink); text-decoration: none; }
+  .name { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; transition: color var(--fast) var(--ease); }
+  .logo { grid-column: 1; grid-row: 1 / 3; width: 36px; height: 36px; object-fit: contain; }
+  .name { grid-column: 2; }
+  .short { grid-column: 2; font-size: 15px; color: var(--ink-muted); }
+  .panel :global(.go) { grid-column: 3; grid-row: 1 / 3; color: var(--link); transition: transform var(--fast) var(--ease); }
+  .panel a:hover .name { color: var(--link); }
+  .panel a:hover :global(.go) { transform: translateX(4px); }
+  @media (max-width: 959px) {
+    .hero { padding-block: var(--space-8); }
+    .grid { grid-template-columns: 1fr; gap: var(--space-7); }
+  }
+</style>

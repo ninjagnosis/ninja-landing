@@ -1,0 +1,77 @@
+---
+import ExternalLink from '@lucide/astro/icons/external-link';
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../../components/site/CtaBand.astro';
+import Related from '../../components/site/Related.astro';
+import PostList from '../../components/blog/PostList.astro';
+import { products, type Product } from '../../data/products';
+import { posts } from '../../lib/posts';
+import { breadcrumbJsonLd, productJsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+const { product: p } = Astro.props as { product: Product };
+const path = `/products/${p.slug}`;
+const about = (await posts()).filter((x) => x.data.tags.some((t) => p.tags.includes(t))).slice(0, 3);
+const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/products/${x.slug}`, label: x.name, meta: x.short }));
+---
+<Base
+  title={p.name}
+  description={`${p.name}: ${p.short} A product of Ninja Infosys LLC.`}
+  path={path}
+  image={p.image}
+  jsonLd={[productJsonLd(p), breadcrumbJsonLd([{ name: 'Products', path: '/products' }, { name: p.name, path }])]}
+>
+  <section class="section">
+    <div class="wrap grid">
+      <div>
+        <div class="title" data-enter>
+          <img class="mark" src={p.logo} alt={`${p.name} logo`} width="64" height="64" />
+          <h1>{p.headline}</h1>
+        </div>
+        <p class="lead" data-enter style="--d:1">{p.description}</p>
+        <div class="actions" data-enter style="--d:2">
+          <a class="btn btn-primary" href={p.url} rel="noopener">Visit {p.host} <ExternalLink size={18} aria-hidden="true" /></a>
+        </div>
+      </div>
+      {p.image && <img class="visual" src={p.image} alt={p.imageAlt ?? p.name} width="1200" height="800" loading="eager" />}
+    </div>
+  </section>
+
+  <section class="section-tight surface" data-reveal>
+    <div class="wrap">
+      <h2>What it does</h2>
+      <ul class="points" data-stagger>
+        {p.highlights.map((h, i) => <li style={`--i:${i}`}>{h}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {about.length > 0 && (
+    <section class="section blog-serif">
+      <div class="wrap">
+        <h2>Posts about {p.name}</h2>
+        <PostList items={about} level="h3" />
+      </div>
+    </section>
+  )}
+
+  <Related groups={[{ h: 'Other products', items: others }]} />
+  <CtaBand />
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+  .title { display: flex; align-items: center; gap: var(--space-4); }
+  .mark { width: 64px; height: 64px; object-fit: contain; flex: none; }
+  @media (max-width: 599px) { .mark { width: 48px; height: 48px; } }
+  .lead { margin-top: var(--space-5); font-size: 1.25rem; color: var(--ink-muted); max-width: 40ch; }
+  .actions { margin-top: var(--space-6); }
+  .visual { width: 100%; border-radius: var(--radius-panel); border: 1px solid var(--line); object-fit: cover; }
+  .surface { background: var(--surface); }
+  .points { list-style: none; margin: var(--space-5) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-7); }
+  .points li { padding-top: var(--space-4); border-top: 1px solid var(--line); }
+  .section-tight > .wrap > h2 { margin-bottom: 0; }
+  @media (max-width: 859px) { .grid { grid-template-columns: 1fr; } .points { grid-template-columns: 1fr; } }
+</style>

@@ -1,93 +1,65 @@
-stages: 
+stages:
   - build
   - deploy
 
 variables:
-  NODE_VERSION: "20"
+  NODE_VERSION: "22"
   PROJECT_NAME: "ninja-landing"
-  BUILD_DIR: "out"
-  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
-  NEXT_TELEMETRY_DISABLED: "1"
+  BUILD_DIR: "dist"
+  PNPM_HOME: "$CI_PROJECT_DIR/.pnpm-store"
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-    - .npm/
-    - .next/cache/
+    - .pnpm-store/
 
 build:
   stage: build
   image: node:${NODE_VERSION}-trixie
-  # tags:
-  #   - numanode
-  variables:
-    NEXT_PUBLIC_PB_URL: $NEXT_PUBLIC_PB_URL
   before_script:
-    - echo "Installing dependencies..."
-    - npm install --cache .npm --prefer-offline --no-audit --legacy-peer-deps
+    - corepack enable
+    - pnpm install --frozen-lockfile
   script:
-    - echo "Building Next.js static site..."
-    - echo "Using NEXT_PUBLIC_PB_URL=$NEXT_PUBLIC_PB_URL"
-    - npm run build
+    - pnpm test
+    - pnpm build
+    - pnpm check
     - test -d ${BUILD_DIR} || (echo "${BUILD_DIR} not found" && exit 1)
-    - ls -la ${BUILD_DIR}
   artifacts:
     paths:
       - ${BUILD_DIR}/
+      - functions/
     expire_in: 1 day
   rules:
     - if: $CI_COMMIT_BRANCH
 
+# wrangler publishes ./functions next to the output directory, so run it from
+# the repository root.
 deploy:preview:
   stage: deploy
   image: node:${NODE_VERSION}-alpine
-  # tags:
-  #   - numanode
   dependencies:
     - build
   before_script:
     - npm install -g wrangler@latest
   script:
-    - echo "Deploying preview..."
     - wrangler pages deploy ${BUILD_DIR} --project-name=${PROJECT_NAME} --branch=${CI_COMMIT_REF_NAME} --commit-hash=${CI_COMMIT_SHA}
-    - echo "Preview URL https://${CI_COMMIT_SHORT_SHA}.preview.ninjainfosys.com"
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
-    url: https://${CI_COMMIT_SHORT_SHA}.preview.ninjainfosys.com
   rules:
     - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main" && $CI_COMMIT_BRANCH != "master"
 
 deploy:production:
   stage: deploy
   image: node:${NODE_VERSION}-alpine
-  # tags:
-  #   - numanode
   dependencies:
     - build
   before_script:
     - npm install -g wrangler@latest
   script:
-    - echo "Deploying to production..."
     - wrangler pages deploy ${BUILD_DIR} --project-name=${PROJECT_NAME} --branch=main
-    - echo "Live at https://ninjainfosys.com"
   environment:
     name: production
     url: https://ninjainfosys.com
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"
-
-debug:env:
-  stage: deploy
-  image: alpine
-  # tags:
-  #   - numanode
-  script:
-    - echo "Checking Cloudflare token visibility..."
-    - if [ -z "$CLOUDFLARE_API_TOKEN" ]; then 
-        echo "❌ Not found"; 
-      else 
-        echo "✅ Found token of length ${#CLOUDFLARE_API_TOKEN}"; 
-      fi
-  rules:
-    - when: always

@@ -1,0 +1,56 @@
+/* Ninja Infosys tokens. Every value here is listed in DESIGN.md; nothing outside it. */
+:root {
+  --canvas: #FFFFFF;
+  --surface: #F4F6FB;
+  --subtle: #E8EDF7;
+  --line: #D7DEEC;
+  --ink: #11151F;
+  --ink-muted: #434B5C;
+  --brand: #0048C0;
+  --brand-hover: #00338C;
+  --on-brand: #FFFFFF;
+  --brand-ink: #0048C0;
+  --link: #0048C0;
+  --accent: #DC143C;
+  --on-accent: #FFFFFF;
+  --stage: #0B1F4D;
+  --stage-ink: #FFFFFF;
+  --stage-muted: #C9D6F0;
+  --stage-line: #3A5190;
+  --ok: #1B6B3A;
+  --bad: #B3261E;
+  --error: #B3261E;
+
+  /* Inter for reading (body, forms, lists); Poppins for headings, buttons and navigation. */
+  --font-sans: 'Inter Variable', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Poppins', 'Poppins Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius-control: 8px;
+  --radius-panel: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --max-width: 1200px;
+  --measure: 680px;
+  --gutter: 16px;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --fast: 150ms;
+  --slow: 250ms;
+
+  color-scheme: light;
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 32px; }
+}

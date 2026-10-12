@@ -1,0 +1,20 @@
+---
+import { NEPAL } from '../../config/site';
+---
+<section class="section surface" data-reveal>
+  <div class="wrap grid">
+    <h2>What we do</h2>
+    <div class="prose">
+      <p>We design, build and operate software for organisations and the people who depend on them.</p>
+      <p>We also operate through {NEPAL.legalName}, a private limited company in {NEPAL.locality}.</p>
+      <p><a href="/about">More about us</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .surface { background: var(--surface); }
+  .grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-8); align-items: start; }
+  .section > .wrap > h2:first-child { margin-bottom: 0; }
+  @media (max-width: 767px) { .grid { grid-template-columns: 1fr; gap: var(--space-5); } }
+</style>

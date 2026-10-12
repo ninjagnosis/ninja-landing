@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+---
+<Base title={frontmatter.title} description={frontmatter.description} path={path}>
+  <section class="section">
+    <div class="wrap">
+      <article class="prose legal"><slot /></article>
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .legal h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); margin-bottom: var(--space-3); }
+  .legal h2 { margin-top: var(--space-7); }
+  .legal ul, .legal ol { padding-left: 1.25rem; }
+  .legal table { display: block; overflow-x: auto; }
+</style>

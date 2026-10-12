@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import Products from '../components/home/Products.astro';
+import CtaBand from '../components/site/CtaBand.astro';
+import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
+import { breadcrumbJsonLd } from '../lib/seo';
+
+---
+<Base
+  title="About"
+  description="Ninja Infosys LLC builds and runs eShasan, ePahichan, AirFone, LunaIoT and LunaCam, and also operates through Ninja Infosys Pvt. Ltd."
+  path="/about"
+  jsonLd={[breadcrumbJsonLd([{ name: 'About', path: '/about' }])]}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 data-enter>About {SITE_NAME}</h1>
+      <p class="lead" data-enter style="--d:1">
+        We design, build and operate software for organisations and the people who depend on them.
+      </p>
+    </div>
+  </section>
+
+  <Products heading="What we run" />
+
+  <section class="section" data-reveal>
+    <div class="wrap">
+      <h2>Where we operate</h2>
+      <div class="offices">
+        <div>
+          <h3>{SITE_NAME}</h3>
+          <p>{LLC_ADDRESS}</p>
+        </div>
+        <div>
+          <h3>{NEPAL.legalName}</h3>
+          <p>Private limited company</p>
+          <p>{NEPAL_ADDRESS}</p>
+          {NEPAL.registrationNumber && <p>Company registration number: {NEPAL.registrationNumber}</p>}
+          {NEPAL.panNumber && <p>PAN: {NEPAL.panNumber}</p>}
+        </div>
+      </div>
+      <p class="more"><a href="/locations">Offices and contact details</a></p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .lead { margin-top: var(--space-5); max-width: 38em; font-size: 1.25rem; color: var(--ink-muted); }
+  .offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+  h3 { margin-bottom: var(--space-3); }
+  .offices > div { border-top: 1px solid var(--line); padding-top: var(--space-5); }
+  .offices p { color: var(--ink-muted); }
+  .offices p + p { margin-top: var(--space-1); }
+  .more { margin-top: var(--space-7); font-weight: 500; }
+  .section > .wrap > h2:first-child { margin-bottom: var(--space-6); }
+  @media (max-width: 767px) { .offices { grid-template-columns: 1fr; gap: var(--space-7); } }
+</style>

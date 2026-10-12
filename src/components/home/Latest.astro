@@ -1,0 +1,18 @@
+---
+import PostList from '../blog/PostList.astro';
+import { posts } from '../../lib/posts';
+const items = (await posts()).slice(0, 3);
+---
+{items.length > 0 && (
+  <section class="section blog-serif" data-reveal>
+    <div class="wrap">
+      <h2>From the blog</h2>
+      <PostList items={items} level="h3" />
+      <p class="all"><a href="/blog">All posts</a></p>
+    </div>
+  </section>
+)}
+
+<style>
+  .all { margin-top: var(--space-7); font-weight: 500; }
+</style>
