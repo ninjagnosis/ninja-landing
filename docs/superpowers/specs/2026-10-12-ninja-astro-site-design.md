@@ -22,9 +22,13 @@ blogs, SEO and forms carry over.
 - Flat surfaces, radius 8/12px, no shadows, gradients, blur, bylines, eyebrows or
   breadcrumbs. Same scale, spacing and motion rules as the three reference sites.
 - Company name everywhere: **Ninja Infosys LLC**.
-- Nepal entity line: footer, contact and legal pages state Ninja Infosys LLC,
-  operating in Nepal through Ninja Infosys Pvt. Ltd. (Nepal-registered private
-  limited company). Office address and registration numbers are inputs from the
+- Ninja Infosys LLC is the main focus of the site: page titles, Open Graph
+  titles, the Organization schema, the header logo text, the home page and the
+  copyright line all name Ninja Infosys LLC. Nothing in the main content is
+  framed around the Nepal company.
+- Nepal entity line: a single supporting line in the footer, contact and legal
+  pages only, stating that Ninja Infosys LLC operates in Nepal through Ninja
+  Infosys Pvt. Ltd. (Nepal-registered private limited company). Office address and registration numbers are inputs from the
   owner and are not invented. Missing values fail the build check, not ship blank.
 
 ## Pages and layout patterns
