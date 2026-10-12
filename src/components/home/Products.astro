@@ -1,8 +1,10 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import { products } from '../../data/products';
+import { href, langOf, ui } from '../../lib/i18n';
 export interface Props { heading?: string }
-const { heading = 'Products' } = Astro.props;
+const lang = langOf(Astro.currentLocale);
+const { heading = ui[lang].productsH } = Astro.props;
 ---
 <section class="section" data-reveal>
   <div class="wrap">
@@ -10,9 +12,9 @@ const { heading = 'Products' } = Astro.props;
     <ul class="list" data-stagger>
       {products.map((p, i) => (
         <li style={`--i:${i}`}>
-          <a href={`/products/${p.slug}`}>
+          <a href={href(lang, `/products/${p.slug}`)}>
             <span class="name">{p.name}</span>
-            <span class="short muted">{p.short}</span>
+            <span class="short muted">{lang === 'ne' ? p.ne.short : p.short}</span>
             <ArrowRight class="go" size={20} stroke-width={2} aria-hidden="true" />
           </a>
         </li>

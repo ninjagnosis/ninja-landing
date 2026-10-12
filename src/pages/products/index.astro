@@ -3,10 +3,12 @@ import Base from '../../layouts/Base.astro';
 import Products from '../../components/home/Products.astro';
 import CtaBand from '../../components/site/CtaBand.astro';
 import { breadcrumbJsonLd } from '../../lib/seo';
+import { langOf, ui } from '../../lib/i18n';
+const T = ui[langOf(Astro.currentLocale)];
 ---
-<Base title="Products" description="The five products held by Ninja Infosys LLC: eShasan, ePahichan, AirFone, LunaIoT and LunaCam." path="/products" jsonLd={[breadcrumbJsonLd([{ name: 'Products', path: '/products' }])]}>
-  <h1 class="wrap page-h1">Products</h1>
-  <Products heading="The group's products" />
+<Base title={T.products} description={T.productsDesc} path="/products" jsonLd={[breadcrumbJsonLd([{ name: T.products, path: '/products' }])]}>
+  <h1 class="wrap page-h1">{T.products}</h1>
+  <Products heading={T.groupProducts} />
   <CtaBand />
 </Base>
 

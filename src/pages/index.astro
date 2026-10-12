@@ -5,11 +5,10 @@ import Products from '../components/home/Products.astro';
 import Group from '../components/home/Group.astro';
 import Latest from '../components/home/Latest.astro';
 import CtaBand from '../components/site/CtaBand.astro';
+import { langOf, ui } from '../lib/i18n';
+const T = ui[langOf(Astro.currentLocale)];
 ---
-<Base
-  description="Ninja Infosys LLC is the holding company for eShasan, ePahichan, AirFone, LunaIoT and LunaCam, software products built and run in Nepal."
-  path="/"
->
+<Base description={T.homeDesc} path="/">
   <Hero />
   <Products />
   <Group />

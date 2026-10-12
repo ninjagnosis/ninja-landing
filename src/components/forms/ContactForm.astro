@@ -1,17 +1,19 @@
 ---
+import { langOf, ui } from '../../lib/i18n';
+const F = ui[langOf(Astro.currentLocale)].form;
 // Posts JSON to /api/contact (functions/api/contact.ts). The honeypot field
 // is hidden from people; bots that fill it are dropped on the server.
 ---
-<form class="form" id="contact-form" novalidate>
+<form class="form" id="contact-form" novalidate data-invalid={F.invalid} data-sending={F.sending} data-ok={F.ok} data-fail={F.fail}>
   <div class="row">
-    <label>First name<input name="firstName" autocomplete="given-name" required maxlength="50" /></label>
-    <label>Last name<input name="lastName" autocomplete="family-name" required maxlength="50" /></label>
+    <label>{F.first}<input name="firstName" autocomplete="given-name" required maxlength="50" /></label>
+    <label>{F.last}<input name="lastName" autocomplete="family-name" required maxlength="50" /></label>
   </div>
-  <label>Email<input name="email" type="email" autocomplete="email" required /></label>
-  <label>Message<textarea name="message" rows="5" maxlength="1000"></textarea></label>
-  <label class="check"><input name="consent" type="checkbox" /> I agree that Ninja Infosys LLC may contact me about my message.</label>
+  <label>{F.email}<input name="email" type="email" autocomplete="email" required /></label>
+  <label>{F.message}<textarea name="message" rows="5" maxlength="1000"></textarea></label>
+  <label class="check"><input name="consent" type="checkbox" /> {F.consent}</label>
   <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-  <button class="btn btn-primary" type="submit">Send message</button>
+  <button class="btn btn-primary" type="submit">{F.submit}</button>
   <p class="status" role="status" aria-live="polite"></p>
 </form>
 
@@ -30,22 +32,22 @@
       website: String(d.get('website') ?? ''),
     };
     if (!body.firstName || !body.lastName || !/^\S+@\S+\.\S+$/.test(body.email)) {
-      status.textContent = 'Enter your name and a valid email address.';
+      status.textContent = form.dataset.invalid!;
       status.dataset.state = 'error';
       return;
     }
     const btn = form.querySelector('button')!;
     btn.disabled = true;
-    status.textContent = 'Sending...';
+    status.textContent = form.dataset.sending!;
     status.dataset.state = '';
     try {
       const res = await fetch('/api/contact', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
-      status.textContent = 'Thank you. We have your message and will reply by email.';
+      status.textContent = form.dataset.ok!;
       status.dataset.state = 'ok';
     } catch {
-      status.textContent = 'The message did not send. Try again, or email us directly.';
+      status.textContent = form.dataset.fail!;
       status.dataset.state = 'error';
     } finally {
       btn.disabled = false;

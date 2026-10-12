@@ -1,24 +1,27 @@
 ---
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import { products } from '../../data/products';
+import { href, langOf, ui } from '../../lib/i18n';
+const lang = langOf(Astro.currentLocale);
+const T = ui[lang];
 const words = 'Ninja Infosys LLC'.split(' ');
 ---
 <section class="hero on-stage">
   <div class="wrap grid">
     <div class="copy">
       <h1 class="display">{words.map((w, i) => (<><span class="w"><span style={`--i:${i}`}>{w}</span></span>{' '}</>))}</h1>
-      <p class="sub">The holding company for eShasan, ePahichan, AirFone, LunaIoT and LunaCam.</p>
+      <p class="sub">{T.heroSub}</p>
       <div class="actions">
-        <a class="btn btn-light" href="/about">About the group</a>
-        <a class="btn btn-secondary" href="/contact">Contact us</a>
+        <a class="btn btn-light" href={href(lang, '/about')}>{T.heroAbout}</a>
+        <a class="btn btn-secondary" href={href(lang, '/contact')}>{T.contactUs}</a>
       </div>
     </div>
-    <ul class="panel" aria-label="Products">
+    <ul class="panel" aria-label={T.products}>
       {products.map((p) => (
         <li>
-          <a href={`/products/${p.slug}`}>
+          <a href={href(lang, `/products/${p.slug}`)}>
             <span class="name">{p.name}</span>
-            <span class="short">{p.short}</span>
+            <span class="short">{lang === 'ne' ? p.ne.short : p.short}</span>
             <ArrowRight class="go" size={20} stroke-width={2} aria-hidden="true" />
           </a>
         </li>

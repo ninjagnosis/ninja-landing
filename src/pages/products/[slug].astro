@@ -7,29 +7,33 @@ import PostList from '../../components/blog/PostList.astro';
 import { products, type Product } from '../../data/products';
 import { posts } from '../../lib/posts';
 import { breadcrumbJsonLd, productJsonLd } from '../../lib/seo';
+import { href, langOf, ui } from '../../lib/i18n';
 
 export function getStaticPaths() {
   return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
 }
+const lang = langOf(Astro.currentLocale);
+const T = ui[lang];
 const { product: p } = Astro.props as { product: Product };
+const L = lang === 'ne' ? p.ne : p;
 const path = `/products/${p.slug}`;
-const about = (await posts()).filter((x) => x.data.tags.some((t) => p.tags.includes(t))).slice(0, 3);
-const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/products/${x.slug}`, label: x.name, meta: x.short }));
+const about = lang === 'ne' ? [] : (await posts()).filter((x) => x.data.tags.some((t) => p.tags.includes(t))).slice(0, 3);
+const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: href(lang, `/products/${x.slug}`), label: x.name, meta: lang === 'ne' ? x.ne.short : x.short }));
 ---
 <Base
   title={p.name}
-  description={`${p.name}: ${p.short} A product of Ninja Infosys LLC.`}
+  description={lang === 'ne' ? `${p.name}: ${L.short} Ninja Infosys LLC को उत्पादन।` : `${p.name}: ${p.short} A product of Ninja Infosys LLC.`}
   path={path}
   image={p.image}
-  jsonLd={[productJsonLd(p), breadcrumbJsonLd([{ name: 'Products', path: '/products' }, { name: p.name, path }])]}
+  jsonLd={[productJsonLd(p), breadcrumbJsonLd([{ name: T.products, path: '/products' }, { name: p.name, path }])]}
 >
   <section class="section">
     <div class="wrap grid">
       <div>
-        <h1 data-enter>{p.headline}</h1>
-        <p class="lead" data-enter style="--d:1">{p.description}</p>
+        <h1 data-enter>{L.headline}</h1>
+        <p class="lead" data-enter style="--d:1">{L.description}</p>
         <div class="actions" data-enter style="--d:2">
-          <a class="btn btn-primary" href={p.url} rel="noopener">Visit {p.host} <ExternalLink size={18} aria-hidden="true" /></a>
+          <a class="btn btn-primary" href={p.url} rel="noopener">{lang === 'ne' ? `${p.host} ${T.visit}` : `${T.visit} ${p.host}`} <ExternalLink size={18} aria-hidden="true" /></a>
         </div>
       </div>
       {p.image && <img class="visual" src={p.image} alt={p.imageAlt ?? p.name} width="1200" height="800" loading="eager" />}
@@ -38,9 +42,9 @@ const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/p
 
   <section class="section-tight surface" data-reveal>
     <div class="wrap">
-      <h2>What it does</h2>
+      <h2>{T.does}</h2>
       <ul class="points" data-stagger>
-        {p.highlights.map((h, i) => <li style={`--i:${i}`}>{h}</li>)}
+        {L.highlights.map((h, i) => <li style={`--i:${i}`}>{h}</li>)}
       </ul>
     </div>
   </section>
@@ -54,7 +58,7 @@ const others = products.filter((x) => x.slug !== p.slug).map((x) => ({ href: `/p
     </section>
   )}
 
-  <Related groups={[{ h: 'Other products', items: others }]} />
+  <Related groups={[{ h: T.others, items: others }]} />
   <CtaBand />
 </Base>
 

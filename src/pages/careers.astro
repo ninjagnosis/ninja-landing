@@ -2,14 +2,16 @@
 import Base from '../layouts/Base.astro';
 import { CONTACT_EMAIL } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
+import { langOf, ui } from '../lib/i18n';
+const T = ui[langOf(Astro.currentLocale)];
 ---
-<Base title="Careers" description="There are no open roles at Ninja Infosys LLC right now. New roles across the group's products are posted on this page." path="/careers" jsonLd={[breadcrumbJsonLd([{ name: 'Careers', path: '/careers' }])]}>
+<Base title={T.careers} description={T.careersDesc} path="/careers" jsonLd={[breadcrumbJsonLd([{ name: T.careers, path: '/careers' }])]}>
   <section class="section">
     <div class="wrap">
-      <h1 data-enter>Careers</h1>
+      <h1 data-enter>{T.careers}</h1>
       <div class="prose" data-enter style="--d:1">
-        <p>There are no open roles right now. New roles across the group's products are posted on this page.</p>
-        <p>To introduce yourself, write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+        <p>{T.careersP1}</p>
+        <p>{T.careersP2} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
       </div>
     </div>
   </section>

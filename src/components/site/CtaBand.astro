@@ -1,13 +1,16 @@
 ---
+import { href, langOf, ui } from '../../lib/i18n';
 export interface Props { heading?: string }
-const { heading = 'Talk to Ninja Infosys LLC' } = Astro.props;
+const lang = langOf(Astro.currentLocale);
+const T = ui[lang];
+const { heading = T.ctaHeading } = Astro.props;
 ---
 <section class="cta on-stage">
   <div class="wrap inner">
     <h2>{heading}</h2>
     <div class="actions">
-      <a class="btn btn-light" href="/contact">Contact us</a>
-      <a class="btn btn-secondary" href="/blog">Read the blog</a>
+      <a class="btn btn-light" href={href(lang, '/contact')}>{T.contactUs}</a>
+      <a class="btn btn-secondary" href="/blog">{T.readBlog}</a>
     </div>
   </div>
 </section>

@@ -4,26 +4,31 @@ import Products from '../components/home/Products.astro';
 import CtaBand from '../components/site/CtaBand.astro';
 import { NEPAL, NEPAL_ADDRESS, LLC_ADDRESS, SITE_NAME } from '../config/site';
 import { breadcrumbJsonLd } from '../lib/seo';
+import { href, langOf, ui } from '../lib/i18n';
+const lang = langOf(Astro.currentLocale);
+const T = ui[lang];
 ---
-<Base title="About" description="Ninja Infosys LLC is a holding company. It owns and runs eShasan, ePahichan, AirFone, LunaIoT and LunaCam and operates in Nepal through Ninja Infosys Pvt. Ltd." path="/about" jsonLd={[breadcrumbJsonLd([{ name: 'About', path: '/about' }])]}>
+<Base title={T.about} description={T.aboutDesc} path="/about" jsonLd={[breadcrumbJsonLd([{ name: T.about, path: '/about' }])]}>
   <section class="section">
     <div class="wrap">
-      <h1 data-enter>About {SITE_NAME}</h1>
+      <h1 data-enter>{T.aboutH}</h1>
       <div class="prose" data-enter style="--d:1">
-        <p>{SITE_NAME} is a holding company. It owns and runs a group of software products and decides where the group invests, what it builds next and what it stops.</p>
-        <p>The products are eShasan, ePahichan, AirFone, LunaIoT and LunaCam. Each one has its own site and its own users. The group sits above them and keeps the work that should be shared, such as finance, hiring and strategy, in one place.</p>
-        <h2>Where we operate</h2>
-        <p>{SITE_NAME} is based at {LLC_ADDRESS}. In Nepal the group operates through {NEPAL.legalName}, a Nepal-registered private limited company at {NEPAL_ADDRESS}.</p>
+        <p>{T.aboutP1}</p>
+        <p>{T.aboutP2}</p>
+        <h2>{T.where}</h2>
+        {lang === 'ne'
+          ? <p>{SITE_NAME} को ठेगाना {LLC_ADDRESS} हो। नेपालमा समूह {NEPAL.legalName} मार्फत सञ्चालन हुन्छ, जुन {NEPAL_ADDRESS} मा रहेको नेपालमा दर्ता भएको निजी लिमिटेड कम्पनी हो।</p>
+          : <p>{SITE_NAME} is based at {LLC_ADDRESS}. In Nepal the group operates through {NEPAL.legalName}, a Nepal-registered private limited company at {NEPAL_ADDRESS}.</p>}
         {(NEPAL.registrationNumber || NEPAL.panNumber) && (
           <p>
-            {NEPAL.registrationNumber && <>Company registration number: {NEPAL.registrationNumber}. </>}
-            {NEPAL.panNumber && <>PAN: {NEPAL.panNumber}.</>}
+            {NEPAL.registrationNumber && <>{T.regNo}: {NEPAL.registrationNumber}. </>}
+            {NEPAL.panNumber && <>{T.pan}: {NEPAL.panNumber}.</>}
           </p>
         )}
-        <p><a href="/locations">Offices and contact details</a></p>
+        <p><a href={href(lang, '/locations')}>{T.officesLink}</a></p>
       </div>
     </div>
   </section>
-  <Products heading="What the group holds" />
+  <Products heading={T.holds} />
   <CtaBand />
 </Base>
