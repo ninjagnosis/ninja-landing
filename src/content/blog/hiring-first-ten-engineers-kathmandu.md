@@ -1,7 +1,7 @@
 ---
 title: "How to hire your first ten engineers in Kathmandu"
 description: A hiring bar, a paid trial task and a plan for retention. How a small Kathmandu product company can hire its first ten engineers without a recruiter.
-date: 2026-10-13
+date: 2026-10-12
 tags: [people, hiring]
 faq:
   - q: "How many engineers should a small product company hire at once?"
