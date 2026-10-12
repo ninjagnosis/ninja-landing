@@ -9,6 +9,14 @@ architecture, layout patterns and content conventions as the AirFone, ePahichan
 and LunaCam sites, so all four are maintained one way. Nothing is lost: pages,
 blogs, SEO and forms carry over.
 
+## Positioning
+
+Ninja Infosys LLC is a holding company. The site presents the group and its five
+products (eShasan, ePahichan, AirFone, LunaIoT, LunaCam), not a consulting firm.
+The home page leads with the products, then the group (who we are, where we
+operate, how to reach us). Consulting-era copy ("global consulting",
+capabilities, industries) is not carried over.
+
 ## Decisions already made
 
 - Astro 5, static output, same skeleton as `epahichan-public-landing`
@@ -39,7 +47,8 @@ Same set and shape as the reference sites:
 |---|---|
 | `/` | home: hero, products, solutions, trust, CTA band (ePahichan `components/home`) |
 | `/products/[slug]`, `/solutions/[slug]` | data-driven pages from `src/data/products.ts`, `solutions.ts`. Products are exactly five: eShasan, ePahichan, AirFone, LunaIoT, LunaCam (`/products/eshasan`, `/epahichan`, `/airfone`, `/lunaiot`, `/lunacam`). Each links out to its own site. |
-| `/services`, `/about`, `/partners`, `/locations`, `/careers`, `/contact` | one designed page each |
+| `/about`, `/locations`, `/careers`, `/contact` | one designed page each, written for a holding company |
+| `/services`, `/solutions/[slug]`, `/partners` | consulting-era pages: dropped unless the owner says to keep one (open item 5) |
 | `/blog`, `/blog/[slug]`, `/blog/page/[n]`, `/blog/tag/[tag]` | content collection, paginated |
 | `/glossary` and `/glossary/[slug]` | only if there is source content; otherwise dropped |
 | `/privacy`, `/terms`, `/cookies`, `/delete-account` | Legal layout |
@@ -123,3 +132,5 @@ Rewriting copy, new features, new languages, changing the sitemap beyond the
    switcher, drop search.)
 3. Form email: DCM submission only, or an HTTP mail service.
 4. Is `/blogs` to `/blog` acceptable, or keep `/blogs` as the canonical path?
+5. Drop `/services`, `/solutions` and `/partners`, or keep any of them? (Recommend
+   drop; their old URLs redirect to `/` or `/products`.)
