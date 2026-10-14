@@ -128,13 +128,11 @@ If you build software in Nepal, especially for government or regulated customers
 
 ## How we approach it
 
-For our own products, we made a decision before the directive existed, and the directive has only made it easier to explain. **Where the data is the product, we keep it in Nepal wherever we reasonably can.** Camera footage in LunaCam runs through relays and storage in Nepal. In ePahichan, the signing key never leaves the signer's phone at all, which is a stronger answer than any data centre can give. In each case, the question "where does my data go?" is part of what the customer is buying, and we would rather answer it in the product than in the small print.
-
-We are also honest that "wherever we reasonably can" is a real limit. Some parts of a modern product, such as the best speech and language models, are not yet available inside the country, and a product that uses them has to say so plainly rather than pretend otherwise.
+For our own products, we made a decision before the directive existed, and the directive has only made it easier to explain. **Customer data belongs in Nepal, and we build our products to keep it here.** For a camera platform, an identity and signing service or a business phone system, the question "where does my data go?" is part of what the customer is buying, and we would rather answer it in the product than in the small print.
 
 That choice has costs. Infrastructure in Nepal is often more expensive than the equivalent abroad, there are fewer providers to choose from, and some of the tools a team takes for granted elsewhere have to be run by hand. We think it is worth it, because trust is the product, and trust is hard to build on a server nobody in the country can see.
 
-We wrote about how a small group decides what to share across products in [what products in a group should share](/blog/what-products-should-share). Infrastructure is one of the clearest cases. A group that runs its own careful, audited, documented infrastructure once, and shares it, can offer every product a better answer to the question this directive puts in buyers' mouths.
+We wrote about how a small group decides what to share across products in [what products in a group should share](/blog/what-products-should-share). Infrastructure is one of the clearest cases. A group that builds careful, documented infrastructure once, and shares it, can offer every product a better answer to the question this directive puts in buyers' mouths.
 
 ## The short version
 
