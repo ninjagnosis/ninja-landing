@@ -100,7 +100,7 @@ For a company the useful question is not the target but the rules. These are the
 
 [Section 11(3E)(c) of the Income Tax Act, 2058](https://nepallaws.com/Laws/income-tax-act-2058-2002/chapter-4-exemptible-amounts-and-other-exemptions/section-11-professional-exemptions-and-facilities/) provides that if a person earns foreign currency by exporting information technology-based services such as business process outsourcing, software programming and cloud computing, they "will be taxed up to fifty percent of the income earned in foreign currency up to the year 2084/85" (checked October 2026). The same section gives other IT-relevant reductions. Under section 11(3)(a), a special industry or information technology industry that gives direct employment to 100 or more Nepali citizens throughout the year pays 90% of the normal rate of tax, with deeper reductions at 300, 500 and 1,000 employees. Section 11(3C) gives a 50% exemption to software development and data processing businesses operating in a designated technology or IT park.
 
-Budgets have layered announcements on top. [Alpine Law Associates](https://lawalpine.com/blog/budget-2082-83-tax-changes-in-nepal) reports a 75% exemption on IT export earnings for 2082/83, "producing an effective rate around 5%", and [the same firm's 2083/84 summary](https://lawalpine.com/blog/budget-2083-84-tax-changes-in-nepal) reports the exemption reset to 50% from 75%, plus a 100% exemption for IT sweat equity (checked October 2026). [Business 360](https://www.b360nepal.com/detail/29119/nepals-it-budget-208384) also reports a 50% income tax exemption for IT service exports in the 2083/84 budget. Our tax guide sets out what we could and could not confirm. NAS-IT's own complaint is the instability: "Tax rates change every year. We need stability for at least 10 to 15 years."
+Budgets have layered announcements on top. [Alpine Law Associates](https://lawalpine.com/blog/budget-2082-83-tax-changes-in-nepal) reports a 75% exemption on IT export earnings for 2082/83, "producing an effective rate around 5%", and [the same firm's 2083/84 summary](https://lawalpine.com/blog/budget-2083-84-tax-changes-in-nepal) reports the exemption reset to 50% from 75%, plus a 100% exemption for IT sweat equity (checked October 2026). [Business 360](https://www.b360nepal.com/detail/29119/nepals-it-budget-208384) also reports a 50% income tax exemption for IT service exports in the 2083/84 budget. Our [tax guide](/blog/software-export-tax-nepal) sets out what we could and could not confirm. NAS-IT's own complaint is the instability: "Tax rates change every year. We need stability for at least 10 to 15 years."
 
 ### VAT
 
@@ -192,15 +192,15 @@ Pioneer Law says the current law, which broadly covers protection for "computer 
 
 ### A way to be paid by many small customers
 
-A product sold abroad needs card payments, subscriptions, refunds and chargebacks. Services firms often have one or two clients who wire money. We cover the routes, limits and published fees in how to accept international payments as a Nepali software company.
+A product sold abroad needs card payments, subscriptions, refunds and chargebacks. Services firms often have one or two clients who wire money. We cover the routes, limits and published fees in [how to accept international payments as a Nepali software company](/blog/international-payments-nepal-software-company).
 
 ### A company that can invoice and claim export treatment
 
-Registration, a PAN, VAT registration where needed and industry registration for IT industry status come before the first foreign invoice. See how to register a software company in Nepal and the tax treatment in tax on software exports from Nepal.
+Registration, a PAN, VAT registration where needed and industry registration for IT industry status come before the first foreign invoice. See [how to register a software company in Nepal](/blog/register-software-company-nepal) and the tax treatment in [tax on software exports from Nepal](/blog/software-export-tax-nepal).
 
 ### Trust in where data lives and how it is handled
 
-Buyers abroad, banks at home and government offices ask where customer data lives and what you do to protect it. The hosting rules are in [Nepal's data centre and cloud directive](/blog/nepal-data-center-cloud-directive-2081). The privacy duties are in the Privacy Act and apps. The question of a security certificate is in ISO 27001 for Nepali software companies. For the public sector, see selling software to Nepal's government.
+Buyers abroad, banks at home and government offices ask where customer data lives and what you do to protect it. The hosting rules are in [Nepal's data centre and cloud directive](/blog/nepal-data-center-cloud-directive-2081). The privacy duties are in [the Privacy Act and apps](/blog/individual-privacy-act-2075-apps). The question of a security certificate is in [ISO 27001 for Nepali software companies](/blog/iso-27001-nepal-software-company). For the public sector, see [selling software to Nepal's government](/blog/selling-software-to-government-nepal).
 
 ### Patient money and a team that can ship the whole thing
 
@@ -218,9 +218,9 @@ This is our advice, not a rule, and each step links to the guide that holds the 
 
 1. **Pick one narrow problem you have solved for several clients** and write it down in a paragraph.
 2. **Fix a capacity share**, for example one engineer in six, protected from client deadlines.
-3. **Check your registration.** Confirm the company, PAN and VAT position and whether you are registered as an IT industry. See the registration guide.
-4. **Open the payment route** you will actually use and run one real transaction. Record the fee, the conversion margin and the days to settle. See the payments guide.
-5. **Ask your accountant which export rate applies** for the year and what proof it needs. See the tax guide.
+3. **Check your registration.** Confirm the company, PAN and VAT position and whether you are registered as an IT industry. See the [registration guide](/blog/register-software-company-nepal).
+4. **Open the payment route** you will actually use and run one real transaction. Record the fee, the conversion margin and the days to settle. See the [payments guide](/blog/international-payments-nepal-software-company).
+5. **Ask your accountant which export rate applies** for the year and what proof it needs. See the [tax guide](/blog/software-export-tax-nepal).
 6. **Write a one-page data note**: what you collect, why, where it lives and who can reach it.
 7. **Assign IP** in every contract.
 8. **Sell to five customers before you build the sixth feature.**
