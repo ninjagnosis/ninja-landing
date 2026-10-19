@@ -3,6 +3,7 @@ title: "Nepal's data centre and cloud directive, 2081: what it asks of software 
 description: "A plain reading of Nepal's data centre and cloud directive, 2081: who must enrol, what government data needs, and what it does not say about localisation."
 date: 2026-10-14
 tags: [strategy, infrastructure]
+pillar: true
 updated: 2026-10-19
 cover: ../../assets/blog/nepal-data-center-cloud-directive-2081/idc-8826.jpg
 coverAlt: Front of the Nepal Government Integrated Data Center building in Kathmandu

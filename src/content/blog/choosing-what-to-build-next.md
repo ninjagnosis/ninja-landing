@@ -3,6 +3,7 @@ title: "Choosing what to build next across several products"
 description: With several products and one budget, the next thing to build is a portfolio question first. A simple way to compare requests from different products fairly.
 date: 2026-10-05
 tags: [strategy, products]
+pillar: true
 updated: 2026-10-19
 cover: ../../assets/blog/choosing-what-to-build-next/whiteboard.jpg
 coverAlt: A team member explaining a timeline on a whiteboard during a video call
