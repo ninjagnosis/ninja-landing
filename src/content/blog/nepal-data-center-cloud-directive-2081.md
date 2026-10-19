@@ -3,6 +3,51 @@ title: "Nepal's data centre and cloud directive, 2081: what it asks of software 
 description: "A plain reading of Nepal's data centre and cloud directive, 2081: who must enrol, what government data needs, and what it does not say about localisation."
 date: 2026-10-14
 tags: [strategy, infrastructure]
+updated: 2026-10-19
+cover: ../../assets/blog/nepal-data-center-cloud-directive-2081/idc-8826.jpg
+coverAlt: Front of the Nepal Government Integrated Data Center building in Kathmandu
+takeaways:
+  - "The directive covers data centres and cloud providers, who must enrol with the Department of Information Technology."
+  - "A facility storing government data must be rated at least Tier 3."
+  - "It does not set a general rule that all company data stays in Nepal."
+  - "A software company that only rents servers is usually a customer, not a provider."
+  - "Buyers will ask where data lives whether or not the law requires it, so write it down now."
+credits:
+  - file: idc-8826.jpg
+    title: "राष्ट्रिय सुचना प्रविधि केन्द्र Nepal Government Integrated Data Center .2"
+    author: "Gunjan Raj Giri"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Gunjan_Raj_Giri"
+    source: "https://commons.wikimedia.org/w/index.php?curid=128210086"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
+  - file: singha-durbar.jpg
+    title: "Singha Durbar"
+    author: "Ashim nep"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Ashim_nep"
+    source: "https://commons.wikimedia.org/wiki/File:Singha_Durbar.JPG"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
+  - file: technician.jpg
+    title: "Technician with laptop working on server rack at NERSC"
+    author: "Derrick Coetzee from Berkeley, CA, USA"
+    authorUrl: "https://www.flickr.com/people/29507259@N02"
+    source: "https://commons.wikimedia.org/wiki/File:Technician_with_laptop_working_on_server_rack_at_NERSC.jpg"
+    licence: CC0 1.0
+    changes: "Resized"
+  - file: racks.jpg
+    title: "Wikimedia Foundation Servers-8055 15"
+    author: "Victorgrigas"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Victorgrigas"
+    source: "https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_15.jpg"
+    licence: CC BY-SA 3.0
+    changes: "Resized"
+  - file: idc-d60b.jpg
+    title: "Nepal Government Integrated Data Center राष्ट्रिय सुचना प्रविधि केन्द्र"
+    author: "Gunjan Raj Giri"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Gunjan_Raj_Giri"
+    source: "https://commons.wikimedia.org/w/index.php?curid=128210213"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
 faq:
   - q: "What is Nepal's Data Center and Cloud Service Directive, 2081?"
     a: "It is a directive issued by the Ministry of Communication and Information Technology in early 2025 (2081 BS) under the Electronic Transactions Act, 2063. It requires data centres and cloud service providers to enrol with the Department of Information Technology and meet security, continuity and reporting requirements."
@@ -26,6 +71,8 @@ Two cautions before we begin. First, we are a software group, not a law firm. Th
 
 The directive was issued by the Ministry of Communication and Information Technology under the Electronic Transactions Act, 2063. It is dated 2081/10/15 in Bikram Sambat, which is late January 2025, and it was made public shortly after. It applies to two kinds of business: those that operate **data centres** and those that provide **cloud services**. It requires both to enrol with the **Department of Information Technology** before they offer services, to keep certain security and continuity standards, to be audited every year, and to report security incidents. It sets stricter conditions for facilities that hold government data. And it gives the Department the power to cancel an enrolment when a provider does not comply.
 
+![A white gate of Singha Durbar in Kathmandu, where government offices sit](../../assets/blog/nepal-data-center-cloud-directive-2081/singha-durbar.jpg "Singha Durbar, Kathmandu. Photo: Ashim nep, CC BY-SA 4.0")
+
 That is the whole thing in outline. The details are where it matters for a software company.
 
 ## Who it applies to, and who it does not
@@ -48,6 +95,8 @@ If you are in one of these, read the directive in full and ask for advice. If yo
 
 The enrolment list is long, and reading it is the fastest way to understand what the government thinks a responsible provider looks like.
 
+![A technician with a laptop working at a server rack in a data centre hall](../../assets/blog/nepal-data-center-cloud-directive-2081/technician.jpg "Maintenance inside a data centre hall, at a research facility in the United States. Photo: Derrick Coetzee from Berkeley, CA, USA, CC0 1.0")
+
 Both data centres and cloud providers are asked for their company registration, a **security and privacy policy**, a **business continuity plan**, details of their technical staff, the location of their infrastructure, and the IP address ranges they use.
 
 **Data centres** are also asked for fire safety assurance, a building completion certificate, the facility's tier details, a description of physical security, a high-level electrical design, and a landowner agreement where the land is leased. Within a year of enrolling, they must submit a certificate of their **tier rating**.
@@ -62,15 +111,19 @@ Providers that were already operating when the directive came into force had six
 
 The word in the directive that will matter most to software companies selling to government is **tier**.
 
+![Close view of rack servers with status lights](../../assets/blog/nepal-data-center-cloud-directive-2081/racks.jpg "Tier ratings are about power, cooling and network paths around machines like these. Photo: Victorgrigas, CC BY-SA 3.0")
+
 Tier ratings are a widely used way of classing data centres by how well they keep running when something fails. They run from Tier 1, which has little redundancy, to Tier 4, which is built to keep running through almost any single failure. In practice the tiers are about power, cooling and network paths: whether there is a second one of everything, and whether you can maintain the first without switching off the servers.
 
-The directive requires a data centre that stores **government data** to be rated at least **Tier 3**. A Tier 3 facility is designed so that any component can be taken out for maintenance without shutting down what it serves.
+The directive requires a data centre that stores **government data** to be rated at least **Tier 3**. A Tier 3 facility is designed so that any component can be taken out for maintenance without shutting down what it serves. The rating has a market already: in June 2026 Ncell's data centre in Lalitpur received an ANSI/TIA-942-C Rated 3 certification, reported by [Nepali Telecom](https://www.nepalitelecom.com/2026/06/ncell-data-centre-receives-tier-3-certification-a-major-milestone-for-digital-goals.html) (checked October 2026). Pioneer Law's [summary of the directive](https://pioneerlaw.com/?p=1257) also states the Tier 3 minimum for government data (checked October 2026).
 
 For a software company that means a simple thing. If you are building a system for a government office, a municipality or a public body, **your choice of hosting is no longer just a cost decision.** A cheap server in a facility without the right rating may make your bid non-compliant, however good your software is.
 
 ## Government data and the Integrated Data Management Center
 
-The directive also gives a central place to the government's own **Integrated Data Management Center**, which prepares infrastructure and colocation space for government IT services. In broad terms, government systems are expected to run in government data facilities, with room for exceptions and for a qualified committee to approve other arrangements where there are good reasons. Security agencies sit outside this particular rule.
+The directive also gives a central place to the government's own **Integrated Data Management Center**, which prepares infrastructure and colocation space for government IT services. In broad terms, government systems are expected to run in government data facilities, with room for exceptions and for a qualified committee to approve other arrangements where there are good reasons. Security agencies sit outside this particular rule. The scale is not small: the centre's head told [Asia News Network](https://asianews.network/?p=227499) that it runs the websites of more than 2,500 government offices, including all 753 local units (checked October 2026).
+
+![Sign of the National Information Technology Center at Singha Durbar, Kathmandu](../../assets/blog/nepal-data-center-cloud-directive-2081/idc-d60b.jpg "The sign of the National Information Technology Center. Photo: Gunjan Raj Giri, CC BY-SA 4.0")
 
 The practical lesson is that a vendor building for government should ask, early and in writing: **where is this system expected to be hosted, and who decides?** Many delivery problems in public IT come from a vendor building for one hosting environment and being told, late, to deploy in another.
 

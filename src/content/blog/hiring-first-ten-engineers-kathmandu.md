@@ -3,6 +3,36 @@ title: "How to hire your first ten engineers in Kathmandu"
 description: A hiring bar, a paid trial task and a plan for retention. How a small Kathmandu product company can hire its first ten engineers without a recruiter.
 date: 2026-10-13
 tags: [people, hiring]
+updated: 2026-10-19
+cover: ../../assets/blog/hiring-first-ten-engineers-kathmandu/lab.jpg
+coverAlt: Rows of computers in a college computer lab in Kathmandu
+takeaways:
+  - "Decide what you are hiring for and set the bar before meeting anyone."
+  - "Hire for learning, not for a tool list."
+  - "Use a short paid trial task and talk through the choices afterwards."
+  - "Hire one or two at a time, pay fairly and say how pay is decided."
+  - "Retention starts on day one with real ownership."
+credits:
+  - file: lab.jpg
+    title: "Islington College Multimedia Lab"
+    author: "www.pmspratik.com.np"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Pmspratik"
+    source: "https://commons.wikimedia.org/wiki/File:Islington_College_Multimedia_Lab.jpg"
+    licence: CC BY-SA 3.0
+    changes: "Resized"
+  - file: team-laptops.jpg
+    title: "Wiki Women edit-a-thon 2018 2"
+    author: "Poonampahari"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Poonampahari"
+    source: "https://commons.wikimedia.org/wiki/File:Wiki_Women_edit-a-thon_2018_2.jpg"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
+  - file: pulchowk.jpg
+    title: "Pulchowk campus"
+    author: "Lulukef"
+    source: "https://commons.wikimedia.org/wiki/File:Pulchowk_campus.jpg"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
 faq:
   - q: "How many engineers should a small product company hire at once?"
     a: "One or two at a time. A team can absorb a new person only as fast as someone can teach them the work, so hiring in batches usually lowers the quality of everyone's output."
@@ -52,6 +82,8 @@ Degrees and previous employers are weak signals. A project they can show you, an
 
 Interviews measure how well someone interviews. A trial task measures how they work.
 
+![A woman typing on a laptop at a cafe table against a stone wall](../../assets/blog/hiring-first-ten-engineers-kathmandu/team-laptops.jpg "A few hours of real work shows how someone thinks. Photo: Poonampahari, CC BY-SA 4.0")
+
 The task should be small, real and paid. A few hours of work on a problem close to what the job will be, with a clear description, access to the people who can answer questions, and a fee for their time. In Kathmandu, where many strong candidates are already employed or freelancing, paying for the time also signals that you respect it.
 
 A few principles keep a trial task fair and useful:
@@ -85,6 +117,8 @@ A small group will rarely out-pay the largest employers or foreign remote jobs. 
 ## Give people something to own
 
 The best reason to join a small company is that you get to own something real. The best reason to leave is that you do not.
+
+![The brick building of Pulchowk campus in Lalitpur, Nepal, with a tall tower](../../assets/blog/hiring-first-ten-engineers-kathmandu/pulchowk.jpg "Engineers in Kathmandu often come through campuses like this. Photo: Lulukef, CC BY-SA 4.0")
 
 Give each engineer a problem or a part of the product that is theirs: they make the decisions, they are the person others ask, and they answer for how it runs. Ownership has a cost, since people will make mistakes. A team that punishes mistakes will find its engineers stop owning anything.
 

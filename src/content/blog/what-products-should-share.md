@@ -3,6 +3,36 @@ title: "What products in a group should share, and what they should not"
 description: Shared sign-in, billing and hosting save money. Shared code and teams slow products down. How a group decides what to share and what to keep separate.
 date: 2026-10-12
 tags: [strategy, products]
+updated: 2026-10-19
+cover: ../../assets/blog/what-products-should-share/switches.jpg
+coverAlt: Network cables plugged into rack-mounted switches
+takeaways:
+  - "Share what is identical everywhere and invisible to customers, such as sign-in, payments, hosting and backups."
+  - "Keep what makes each product useful with that product."
+  - "Share contracts rather than code, so products do not wait on each other."
+  - "Give every shared part one named owner and stop sharing when it slows products down."
+credits:
+  - file: switches.jpg
+    title: "Network switches"
+    author: "ShakataGaNai"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:ShakataGaNai"
+    source: "https://commons.wikimedia.org/wiki/File:Network_switches.jpg"
+    licence: CC BY-SA 3.0
+    changes: "Resized"
+  - file: servers.jpg
+    title: "Wikimedia Foundation Servers-8055 02"
+    author: "Victorgrigas"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Victorgrigas"
+    source: "https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_02.jpg"
+    licence: CC BY-SA 3.0
+    changes: "Resized"
+  - file: maju-dega.jpg
+    title: "Kathmandu Maju Dega"
+    author: "Canon55D"
+    authorUrl: "https://commons.wikimedia.org/wiki/User:Canon55D"
+    source: "https://commons.wikimedia.org/wiki/File:Kathmandu_Maju_Dega.jpg"
+    licence: CC BY-SA 4.0
+    changes: "Resized"
 faq:
   - q: "Should every product in a group use the same platform?"
     a: "Only for the parts that are the same everywhere and that customers do not see as different, such as sign-in, payments, hosting and backups. The parts that make each product useful should stay with that product."
@@ -19,6 +49,8 @@ Sometimes it is. Sometimes sharing ties products together so tightly that none o
 ## Why sharing is tempting
 
 The case for sharing is real:
+
+![Blue network cables and servers inside an open rack](../../assets/blog/what-products-should-share/servers.jpg "One rack serving many products is the appeal. Photo: Victorgrigas, CC BY-SA 3.0")
 
 - **Less work.** Building sign-in once instead of five times saves months.
 - **Fewer mistakes.** Security, backups and payments are easy to get wrong. One careful version is better than five rushed ones.
@@ -76,6 +108,8 @@ This lets the shared team change how things work inside without breaking product
 ## Give every shared part an owner
 
 A shared part needs one named team that owns it, with the products as its customers. That team:
+
+![Maju Dega temple on Kathmandu Durbar Square at dusk, with people gathered on its steps](../../assets/blog/what-products-should-share/maju-dega.jpg "A shared place with no keeper decays. Photo: Canon55D, CC BY-SA 4.0")
 
 - Decides how the shared part changes.
 - Publishes changes in advance.

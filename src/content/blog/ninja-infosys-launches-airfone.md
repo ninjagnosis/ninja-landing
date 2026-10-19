@@ -5,6 +5,39 @@ date: 2026-10-09
 tags: [airfone, products, news]
 image: /media/airfone-launch/cover.webp
 imageAlt: The AirFone team on stage at the pre-launch, holding AirFone brochures
+updated: 2026-10-19
+cover: ../../assets/blog/ninja-infosys-launches-airfone/cover.webp
+coverAlt: The AirFone team on stage at the pre-launch, holding AirFone brochures
+takeaways:
+  - "Ninja Infosys pre-launched AirFone on 9 October 2026 at a private event for the team."
+  - "AirFone is a business phone platform and AI call agent for Nepal."
+  - "It answers calls in Nepali and English on the number a business already uses."
+  - "The public rollout follows the pre-launch."
+credits:
+  - file: cover.webp
+    own: true
+  - file: team-9.webp
+    own: true
+  - file: team-10.webp
+    own: true
+  - file: team-1.webp
+    own: true
+  - file: team-2.webp
+    own: true
+  - file: team-3.webp
+    own: true
+  - file: team-4.webp
+    own: true
+  - file: team-5.webp
+    own: true
+  - file: team-6.webp
+    own: true
+  - file: team-7.webp
+    own: true
+  - file: team-8.webp
+    own: true
+  - file: cake.webp
+    own: true
 faq:
   - q: "What is AirFone?"
     a: "AirFone is a business phone platform for Nepal with an AI call agent that answers calls in Nepali and English, on the number a business already uses."
@@ -13,11 +46,6 @@ faq:
   - q: "Who can use AirFone?"
     a: "Businesses that take phone calls, such as clinics, banks, hotels and shops, along with resellers who sell to them and developers who build on it."
 ---
-
-<figure>
-  <img src="/media/airfone-launch/cover.webp" alt="The AirFone team on stage at the pre-launch, holding AirFone brochures" width="1600" height="905" />
-  <figcaption>The team that built AirFone, at the pre-launch on 9 October 2026.</figcaption>
-</figure>
 
 On 9 October 2026, Ninja Infosys pre-launched [AirFone](https://airfone.app), its business phone platform and AI call agent for Nepal. The launch was a private event for the people who built it. It marked the day AirFone moved from development to taking real calls for real businesses.
 
@@ -46,24 +74,32 @@ It also gave the team a chance to mark the moment together before the work of th
 
 The event was held at Ninja Infosys, with the team that designed, built and tested AirFone. There was a stage, green and white to match the brand, the first printed AirFone brochures, and a cake with the AirFone logo on it.
 
-<figure>
-  <img src="/media/airfone-launch/cake.webp" alt="A square cake with green icing and the AirFone logo on top" width="1400" height="788" loading="lazy" />
-  <figcaption>The AirFone launch cake.</figcaption>
-</figure>
+![A square cake with green icing and the AirFone logo on top](../../assets/blog/ninja-infosys-launches-airfone/cake.webp "The AirFone launch cake. Photo: Ninja Infosys")
 
 Each member of the team had their photo taken in front of the launch backdrop. AirFone is the work of engineers, designers, testers and the people who talked to businesses about what they needed. Every one of them is part of this launch.
 
 <div class="photo-grid">
-  <img src="/media/airfone-launch/team-9.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-10.webp" alt="A member of the AirFone team holding an AirFone brochure in front of the launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-1.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-2.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-3.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-4.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-5.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-6.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-7.webp" alt="A member of the AirFone team in front of the green launch backdrop" width="700" height="1244" loading="lazy" />
-  <img src="/media/airfone-launch/team-8.webp" alt="A member of the AirFone team holding an AirFone brochure in front of the launch backdrop" width="700" height="1244" loading="lazy" />
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-9.webp)
+
+![A member of the AirFone team holding an AirFone brochure in front of the launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-10.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-1.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-2.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-3.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-4.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-5.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-6.webp)
+
+![A member of the AirFone team in front of the green launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-7.webp)
+
+![A member of the AirFone team holding an AirFone brochure in front of the launch backdrop](../../assets/blog/ninja-infosys-launches-airfone/team-8.webp)
+
 </div>
 
 ## Where AirFone fits in Ninja Infosys

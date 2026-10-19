@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
+import { rehypeFigures } from './src/lib/rehype-figures.mjs';
 
 // Static build, no trailing slashes. The sitemap is written after the build
 // from dist/ (scripts/sitemap.mjs). The four form endpoints are Cloudflare
 // Pages Functions in functions/api.
 export default defineConfig({
-  markdown: { shikiConfig: { theme: 'github-light' } },
+  markdown: { shikiConfig: { theme: 'github-light' }, rehypePlugins: [rehypeFigures] },
   site: 'https://ninjainfosys.com',
   output: 'static',
   trailingSlash: 'never',
