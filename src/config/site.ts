@@ -41,3 +41,6 @@ export const NEPAL = {
 } as const;
 export const NEPAL_ADDRESS = `${NEPAL.street}, ${NEPAL.locality}`;
 export const NEPAL_LINE = `Ninja Infosys LLC also operates through ${NEPAL.legalName}, a private limited company in ${NEPAL.locality}.`;
+
+/** Words shown as written in blog topic labels. */
+export const TAG_WORDS = { eshasan: 'eShasan', epahichan: 'ePahichan', airfone: 'AirFone', lunaiot: 'LunaIoT', lunacam: 'LunaCam' } as const;

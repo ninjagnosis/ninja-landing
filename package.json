@@ -5,25 +5,24 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/sitemap.mjs dist",
+    "build": "astro build && site-kit sitemap dist",
     "preview": "astro preview",
     "test": "vitest run",
-    "check": "node scripts/check-credits.mjs && node scripts/check.mjs dist"
+    "check": "site-kit credits && node scripts/check.mjs dist"
   },
   "dependencies": {
-    "@astrojs/rss": "^4",
     "@fontsource-variable/inter": "5.2.8",
     "@fontsource-variable/source-serif-4": "5.2.8",
     "@fontsource/poppins": "^5",
     "@lucide/astro": "1.53.0",
     "astro": "^5.10.0",
     "sharp": "^0.35.4",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "@ninjainfosys/site-kit": "^0.3.0"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2",
     "node-html-parser": "^7",
-    "satori": "^0.18",
     "vitest": "^3.0.0"
   },
   "pnpm": {

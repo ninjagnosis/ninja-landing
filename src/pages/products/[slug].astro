@@ -1,11 +1,11 @@
 ---
 import ExternalLink from '@lucide/astro/icons/external-link';
 import Base from '../../layouts/Base.astro';
-import CtaBand from '../../components/site/CtaBand.astro';
-import Related from '../../components/site/Related.astro';
-import PostList from '../../components/blog/PostList.astro';
+import CtaBand from '@ninjainfosys/site-kit/components/site/CtaBand.astro';
+import Related from '@ninjainfosys/site-kit/components/site/Related.astro';
+import PostList from '@ninjainfosys/site-kit/components/blog/PostList.astro';
 import { products, type Product } from '../../data/products';
-import { posts } from '../../lib/posts';
+import { posts } from '@ninjainfosys/site-kit/lib/posts';
 import { breadcrumbJsonLd, productJsonLd } from '../../lib/seo';
 
 export function getStaticPaths() {

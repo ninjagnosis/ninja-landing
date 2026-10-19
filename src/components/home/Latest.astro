@@ -1,6 +1,6 @@
 ---
-import PostList from '../blog/PostList.astro';
-import { posts } from '../../lib/posts';
+import PostList from '@ninjainfosys/site-kit/components/blog/PostList.astro';
+import { posts } from '@ninjainfosys/site-kit/lib/posts';
 const items = (await posts()).slice(0, 3);
 ---
 {items.length > 0 && (

@@ -1,67 +1,9 @@
 ---
-import '../styles/base.css';
-import '../styles/motion.css';
-import Seo from '../components/seo/Seo.astro';
-import Header from '../components/site/Header.astro';
+// The site's layout: the kit's Base with the site's own footer. The slots are
+// written without whitespace between them, so none leaks into <main>.
+import KitBase from '@ninjainfosys/site-kit/layouts/Base.astro';
 import Footer from '../components/site/Footer.astro';
-import DashainPopup from '../components/site/DashainPopup.astro';
-// Dashain popup kept for next season; flip to true to show it again.
-const SHOW_DASHAIN_POPUP = false;
-import fontInter from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import font600 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url';
-
-export interface Props {
-  title?: string;
-  description: string;
-  path: string;
-  image?: string;
-  imageAlt?: string;
-  type?: 'website' | 'article';
-  noindex?: boolean;
-  jsonLd?: object[];
-  published?: Date;
-  modified?: Date;
-  pageType?: string;
-}
 
 const props = Astro.props;
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <meta name="color-scheme" content="light" />
-    <link rel="preload" href={fontInter} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={font600} as="font" type="font/woff2" crossorigin />
-    <link rel="icon" href="/brand/ninja-mark-64.png" type="image/png" />
-    <link rel="icon" href="/brand/ninja-mark-32.png" sizes="32x32" type="image/png" />
-    <link rel="apple-touch-icon" href="/brand/ninja-mark-192.png" />
-    <link rel="alternate" type="application/rss+xml" title="Ninja Infosys blog" href="/rss.xml" />
-    <Seo {...props} />
-    <slot name="head" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
-    <main id="main">
-      <slot />
-    </main>
-    <Footer />
-    {SHOW_DASHAIN_POPUP && <DashainPopup />}
-    <script>
-      // Fade sections in as they enter the viewport. Content is visible
-      // without this; it only runs when motion is allowed.
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-        const els = document.querySelectorAll('[data-reveal]');
-        const io = new IntersectionObserver((entries) => {
-          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-        }, { rootMargin: '0px', threshold: 0 });
-        const vh = innerHeight;
-        els.forEach((el) => { if (el.getBoundingClientRect().top > vh) io.observe(el); else el.classList.add('is-in'); });
-        document.documentElement.classList.add('reveal-ready');
-      }
-    </script>
-  </body>
-</html>
+<KitBase {...props}><slot name="head" slot="head" /><slot /><Footer slot="footer" /></KitBase>

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Products from '../../components/home/Products.astro';
-import CtaBand from '../../components/site/CtaBand.astro';
+import CtaBand from '@ninjainfosys/site-kit/components/site/CtaBand.astro';
 import { breadcrumbJsonLd } from '../../lib/seo';
 ---
 <Base title="Software products by Ninja Infosys LLC" pageType="CollectionPage" description="eShasan for institutions, ePahichan for digital signatures, AirFone for business phones, LunaIoT for GPS tracking and LunaCam for cameras, from Ninja Infosys LLC." path="/products" jsonLd={[breadcrumbJsonLd([{ name: 'Products', path: '/products' }])]}>

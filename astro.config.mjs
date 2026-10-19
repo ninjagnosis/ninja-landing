@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import { rehypeFigures } from './src/lib/rehype-figures.mjs';
+import siteKit from '@ninjainfosys/site-kit/integration';
 
 // Static build, no trailing slashes. The sitemap is written after the build
-// from dist/ (scripts/sitemap.mjs). The four form endpoints are Cloudflare
+// from dist/ (site-kit sitemap). The four form endpoints are Cloudflare
 // Pages Functions in functions/api.
 export default defineConfig({
-  markdown: { shikiConfig: { theme: 'github-light' }, rehypePlugins: [rehypeFigures] },
+  markdown: { shikiConfig: { theme: 'github-light' } },
+  integrations: [siteKit({ pages: { glossary: false } })],
   site: 'https://ninjainfosys.com',
   output: 'static',
   trailingSlash: 'never',
@@ -14,8 +15,5 @@ export default defineConfig({
   compressHTML: true,
   vite: {
     server: { allowedHosts: true },
-    ssr: { external: ['@resvg/resvg-js'] },
-    optimizeDeps: { exclude: ['@resvg/resvg-js'] },
-    build: { rollupOptions: { external: [/\.node$/] } },
   },
 });
