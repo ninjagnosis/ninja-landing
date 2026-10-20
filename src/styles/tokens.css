@@ -20,11 +20,15 @@
   --ok: #1B6B3A;
   --bad: #B3261E;
   --error: #B3261E;
+  --mark: var(--brand);
+  --warn-bg: #FFF1CC;
+  --warn-ink: #5C3A00;
 
   /* Inter for reading (body, forms, lists); Poppins for headings, buttons and navigation. */
   --font-sans: 'Inter Variable', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Poppins', 'Poppins Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-serif: 'Source Serif 4 Variable', 'Serif Fallback', Georgia, serif;
 
   --radius-control: 8px;
   --radius-panel: 12px;

@@ -20,6 +20,8 @@ breadcrumbs shown, no AI look). Colour comes from the Ninja Infosys logo.
 | `--stage-muted` | `#C9D6F0` | secondary text on stage |
 | `--stage-line` | `#3A5190` | borders on stage |
 | `--ok` / `--error` | `#1B6B3A` / `#B3261E` | form status |
+| `--mark` | = `--brand` | bullets, the reading progress bar |
+| `--warn-bg` / `--warn-ink` | `#FFF1CC` / `#5C3A00` | warning callout panel in posts (9:1) |
 
 Blue is the action colour. Red is the accent and is never used for body text.
 Light only. No shadows, gradients or blur.
@@ -47,3 +49,5 @@ gutter 16px (32px from 768px). Sections 96px (64px on phones).
 
 Home, products (`/products/*`), about, locations, careers, contact,
 blog (`/blog`, paginated, tag pages), terms, privacy, cookies.
+
+Fonts are tokens (`--font-sans`, `--font-display`, `--font-mono`, `--font-serif`); the shared blog and glossary styles use only these.
