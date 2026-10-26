@@ -2,8 +2,8 @@
 // config/site.ts: header, share cards, llms.txt and blog wording. The footer is
 // the site's own (layouts/Base.astro passes it to the kit's footer slot).
 import type { SiteKit } from '@ninjainfosys/site-kit/contract';
-import fontInter from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import font600 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url';
+import fontGeist from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
+import fontManrope from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 import { products } from '../data/products';
 import { asocio, awards } from '../data/media';
 import { blogJsonLd } from '../lib/blog-jsonld';
@@ -36,7 +36,7 @@ export const kit: SiteKit = {
     robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
   head: {
-    preloadFonts: [fontInter, font600],
+    preloadFonts: [fontGeist, fontManrope],
     icons: [
       { rel: 'icon', href: '/brand/ninja-mark-64.png', type: 'image/png' },
       { rel: 'icon', href: '/brand/ninja-mark-32.png', sizes: '32x32', type: 'image/png' },
